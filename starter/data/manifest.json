@@ -1,16 +1,16 @@
 {
   "sources": [
     {
-      "source_id": "dense-retrieval-survey-2022",
-      "title": "Dense Text Retrieval based on Pretrained Language Models: A Survey",
-      "authors": "Wayne Xin Zhao, Jing Liu, Ruiyang Ren, Ji-Rong Wen",
-      "source_path_or_url": "data/2211.14876v1.pdf",
-      "origin_url": "https://arxiv.org/pdf/2211.14876v1",
-      "license_or_permission": "arXiv non-exclusive distribution license (shown on https://arxiv.org/abs/2211.14876). Not a Creative Commons license, so the PDF is NOT redistributed in this repository: obtain it from origin_url and verify it with sha256. Used locally for research and for local embedding only.",
+      "source_id": "llm-survey-2024",
+      "title": "Large Language Models: A Survey",
+      "authors": "Shervin Minaee, Tomas Mikolov, Narjes Nikzad, Meysam Chenaghlu, Richard Socher, Xavier Amatriain, Jianfeng Gao",
+      "source_path_or_url": "data/2402.06196v3.pdf",
+      "origin_url": "https://arxiv.org/pdf/2402.06196v3",
+      "license_or_permission": "Creative Commons Attribution 4.0 International (CC BY 4.0), as shown on https://arxiv.org/abs/2402.06196 (license link https://creativecommons.org/licenses/by/4.0/). Redistribution allowed with attribution to the authors.",
       "accessed_at": "2026-11-13",
-      "version": "arXiv v1, submitted 27 Nov 2022 (the only version listed on the abstract page when accessed)",
-      "sha256": "2dfbbe358b3dd614e8a62446e273fa859dcd035ab4f1aa119208e1bfb76bdb9e",
-      "physical_pages": 41,
+      "version": "arXiv v3 (PDF stamp: 23 Mar 2025); v1 submitted 9 Feb 2024; the abstract page lists v1-v3",
+      "sha256": "c5b884dc070cc6ed3e4ec06214fa84d4afff0873e7e7f66f8dcdcd2285e10914",
+      "physical_pages": 44,
       "counted_pages": [
         1,
         2,
@@ -43,276 +43,297 @@
         29,
         30,
         31,
-        32
-      ],
-      "full_content_pages": 31,
-      "partial_content_pages": [
-        32
-      ],
-      "excluded_pages": [
+        32,
         33,
         34,
         35,
         36,
         37,
+        43,
+        44
+      ],
+      "full_content_pages": 38,
+      "partial_content_pages": [
+        37
+      ],
+      "excluded_pages": [
         38,
         39,
         40,
-        41
+        41,
+        42
       ],
-      "counting_method": "Pages 1-31 are body text (title/abstract, sections 1-10). Page 32 holds the end of the conclusion followed by the start of the reference list, so it is counted as partial and not as a full page. Pages 33-41 are bibliography only (>= 15 '[n]' lines marks the first reference page) and are excluded. Characters are counted after Unicode NFC normalization, before line-joining. Printed page numbers equal PDF page numbers.",
+      "counting_method": "Body text is pages 1-36. Page 37 holds the last lines of the conclusion followed by the REFERENCES heading, so it is counted as partial, not as a full page. Pages 38-42 are bibliography only (>= 10 '[n]' lines) and are excluded. Pages 43-44 are appendix content placed after the references (tools and vector databases) and are counted. Characters are counted after Unicode NFC normalization, before line-joining. Printed page numbers equal PDF page numbers.",
       "known_text_noise": [
-        "Each page starts with its printed page number on its own line",
-        "Page 1 contains the arXiv stamp 'arXiv:2211.14876v1 [cs.IR] 27 Nov 2022'",
-        "Two-column layout: tables and figure captions can appear before or inside body text"
+        "Page 1 contains the arXiv stamp 'arXiv:2402.06196v3 [cs.CL] 23 Mar 2025'",
+        "Two-column layout: tables, figure captions and table cells can appear before or inside body text",
+        "Large tables (e.g. benchmark results) extract as short space-separated lines with little prose"
       ],
-      "total_chars": 271707,
+      "total_chars": 209381,
       "pages": [
         {
-          "page_id": "dense-retrieval-survey-2022-p001",
+          "page_id": "llm-survey-2024-p001",
           "page": 1,
-          "chars": 5671,
+          "chars": 5232,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p002",
+          "page_id": "llm-survey-2024-p002",
           "page": 2,
-          "chars": 6578,
+          "chars": 6695,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p003",
+          "page_id": "llm-survey-2024-p003",
           "page": 3,
-          "chars": 5170,
+          "chars": 4859,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p004",
+          "page_id": "llm-survey-2024-p004",
           "page": 4,
-          "chars": 6140,
+          "chars": 2473,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p005",
+          "page_id": "llm-survey-2024-p005",
           "page": 5,
-          "chars": 3650,
+          "chars": 3993,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p006",
+          "page_id": "llm-survey-2024-p006",
           "page": 6,
-          "chars": 6215,
+          "chars": 3543,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p007",
+          "page_id": "llm-survey-2024-p007",
           "page": 7,
-          "chars": 4620,
+          "chars": 5821,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p008",
+          "page_id": "llm-survey-2024-p008",
           "page": 8,
-          "chars": 4906,
+          "chars": 2018,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p009",
+          "page_id": "llm-survey-2024-p009",
           "page": 9,
-          "chars": 5712,
+          "chars": 3640,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p010",
+          "page_id": "llm-survey-2024-p010",
           "page": 10,
-          "chars": 6765,
+          "chars": 3527,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p011",
+          "page_id": "llm-survey-2024-p011",
           "page": 11,
-          "chars": 6597,
+          "chars": 4317,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p012",
+          "page_id": "llm-survey-2024-p012",
           "page": 12,
-          "chars": 5931,
+          "chars": 5597,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p013",
+          "page_id": "llm-survey-2024-p013",
           "page": 13,
-          "chars": 5869,
+          "chars": 3758,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p014",
+          "page_id": "llm-survey-2024-p014",
           "page": 14,
-          "chars": 6482,
+          "chars": 1098,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p015",
+          "page_id": "llm-survey-2024-p015",
           "page": 15,
-          "chars": 6524,
+          "chars": 4133,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p016",
+          "page_id": "llm-survey-2024-p016",
           "page": 16,
-          "chars": 6069,
+          "chars": 6188,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p017",
+          "page_id": "llm-survey-2024-p017",
           "page": 17,
-          "chars": 6222,
+          "chars": 2725,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p018",
+          "page_id": "llm-survey-2024-p018",
           "page": 18,
-          "chars": 6697,
+          "chars": 5441,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p019",
+          "page_id": "llm-survey-2024-p019",
           "page": 19,
-          "chars": 6570,
+          "chars": 4743,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p020",
+          "page_id": "llm-survey-2024-p020",
           "page": 20,
-          "chars": 5863,
+          "chars": 4659,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p021",
+          "page_id": "llm-survey-2024-p021",
           "page": 21,
-          "chars": 5542,
+          "chars": 5877,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p022",
+          "page_id": "llm-survey-2024-p022",
           "page": 22,
-          "chars": 6671,
+          "chars": 3067,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p023",
+          "page_id": "llm-survey-2024-p023",
           "page": 23,
-          "chars": 4509,
+          "chars": 6072,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p024",
+          "page_id": "llm-survey-2024-p024",
           "page": 24,
-          "chars": 5559,
+          "chars": 6193,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p025",
+          "page_id": "llm-survey-2024-p025",
           "page": 25,
-          "chars": 6137,
+          "chars": 3400,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p026",
+          "page_id": "llm-survey-2024-p026",
           "page": 26,
-          "chars": 6935,
+          "chars": 6205,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p027",
+          "page_id": "llm-survey-2024-p027",
           "page": 27,
-          "chars": 6783,
+          "chars": 3096,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p028",
+          "page_id": "llm-survey-2024-p028",
           "page": 28,
-          "chars": 6266,
+          "chars": 1143,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p029",
+          "page_id": "llm-survey-2024-p029",
           "page": 29,
-          "chars": 6256,
+          "chars": 2873,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p030",
+          "page_id": "llm-survey-2024-p030",
           "page": 30,
+          "chars": 5573,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p031",
+          "page": 31,
+          "chars": 3835,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p032",
+          "page": 32,
+          "chars": 5945,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p033",
+          "page": 33,
+          "chars": 3060,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p034",
+          "page": 34,
+          "chars": 2611,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p035",
+          "page": 35,
           "chars": 6438,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p031",
-          "page": 31,
-          "chars": 6712,
+          "page_id": "llm-survey-2024-p036",
+          "page": 36,
+          "chars": 4531,
           "kind": "content"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p032",
-          "page": 32,
-          "chars": 7336,
+          "page_id": "llm-survey-2024-p037",
+          "page": 37,
+          "chars": 7857,
           "kind": "mixed_content_and_references"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p033",
-          "page": 33,
-          "chars": 8865,
-          "kind": "references"
-        },
-        {
-          "page_id": "dense-retrieval-survey-2022-p034",
-          "page": 34,
-          "chars": 8899,
-          "kind": "references"
-        },
-        {
-          "page_id": "dense-retrieval-survey-2022-p035",
-          "page": 35,
-          "chars": 9001,
-          "kind": "references"
-        },
-        {
-          "page_id": "dense-retrieval-survey-2022-p036",
-          "page": 36,
-          "chars": 8968,
-          "kind": "references"
-        },
-        {
-          "page_id": "dense-retrieval-survey-2022-p037",
-          "page": 37,
-          "chars": 8596,
-          "kind": "references"
-        },
-        {
-          "page_id": "dense-retrieval-survey-2022-p038",
+          "page_id": "llm-survey-2024-p038",
           "page": 38,
-          "chars": 9107,
+          "chars": 8334,
           "kind": "references"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p039",
+          "page_id": "llm-survey-2024-p039",
           "page": 39,
-          "chars": 9090,
+          "chars": 8386,
           "kind": "references"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p040",
+          "page_id": "llm-survey-2024-p040",
           "page": 40,
-          "chars": 9050,
+          "chars": 8491,
           "kind": "references"
         },
         {
-          "page_id": "dense-retrieval-survey-2022-p041",
+          "page_id": "llm-survey-2024-p041",
           "page": 41,
-          "chars": 6736,
+          "chars": 8472,
           "kind": "references"
+        },
+        {
+          "page_id": "llm-survey-2024-p042",
+          "page": 42,
+          "chars": 6733,
+          "kind": "references"
+        },
+        {
+          "page_id": "llm-survey-2024-p043",
+          "page": 43,
+          "chars": 5616,
+          "kind": "content"
+        },
+        {
+          "page_id": "llm-survey-2024-p044",
+          "page": 44,
+          "chars": 1113,
+          "kind": "content"
         }
       ]
     }
