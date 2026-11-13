@@ -1,0 +1,165 @@
+{
+  "benchmark_version": "1.0",
+  "source_id": "llm-survey-2024",
+  "source": "Large Language Models: A Survey, arXiv 2402.06196v3 (see data/manifest.json)",
+  "split_rule": "Fixed before any retrieval run. 15 dev (d01-d15) + 5 test (t01-t05). Test questions were chosen to cover different pages and question types and must not be edited after results are seen.",
+  "evidence_rule": "evidence_quote is copied from the NORMALIZED page text (src.ingestion.normalize_text) with runs of whitespace treated as one space. Page numbers are PDF page numbers (= printed page numbers).",
+  "filter_field": {
+    "name": "section",
+    "meaning": "Top-level section (Roman numeral) in effect at the START of the page, taken from the paper's own headings. Filter questions only cite pages that start in that section and contain no new top-level heading.",
+    "values": {
+      "II": "II. LARGE LANGUAGE MODELS (pages 2-11)",
+      "III": "III. HOW LLMS ARE BUILT (pages 12-20)",
+      "IV": "IV. HOW LLMS ARE USED AND AUGMENTED (pages 21-26)",
+      "VI": "VI. PROMINENT LLMS' PERFORMANCE ON BENCHMARKS (pages 30-35)"
+    },
+    "given_as": "The filter value is supplied with the question before retrieval; it is never derived from the answer or the gold page."
+  },
+  "questions": [
+    {
+      "id": "d01", "type": "truc_tiep", "split": "dev",
+      "question": "Which three emergent abilities of LLMs does the survey's introduction list?",
+      "expected_answer": "In-context learning, instruction following, and multi-step reasoning.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 2,
+      "evidence_quote": "these emergent abilities include (1) in-context learning, where LLMs learn a new task from a small set of examples presented in the prompt at inference time, (2) instruction following, where LLMs, after instruction tuning, can follow the instructions for new types of tasks without using explicit examples, and (3) multi-step reasoning, where LLMs can solve a complex task by breaking down that task into intermediate reasoning steps"
+    },
+    {
+      "id": "d02", "type": "dien_dat_lai", "split": "dev",
+      "question": "Roughly how many parameters do the models the paper calls large language models contain?",
+      "expected_answer": "Tens to hundreds of billions of parameters.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 2,
+      "evidence_quote": "Large language models mainly refer to transformer-based neural language models 1 that contain tens to hundreds of billions of parameters"
+    },
+    {
+      "id": "d03", "type": "dien_dat_lai", "split": "dev",
+      "question": "What advantage of Transformers over RNNs made it practical to pre-train very large language models?",
+      "expected_answer": "Transformers allow much more parallelization than RNNs, so very big models can be pre-trained efficiently on large data using GPUs.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 2,
+      "evidence_quote": "Transformers allow for much more parallelization than RNNs, which makes it possible to efficiently pre-train very big language models on large amounts of data on GPUs"
+    },
+    {
+      "id": "d04", "type": "truc_tiep", "split": "dev",
+      "question": "What three modules does BERT consist of?",
+      "expected_answer": "An embedding module, a stack of Transformer encoders, and a fully connected layer.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 2,
+      "evidence_quote": "BERT consists of three modules: (1) an embedding module that converts input text into a sequence of embedding vectors, (2) a stack of Transformer encoders that converts embedding vectors into contextual representation vectors, and (3) a fully connected layer that converts the representation vectors (at the final layer) to one-hot vectors."
+    },
+    {
+      "id": "d05", "type": "truc_tiep", "split": "dev",
+      "question": "How many parameters does GPT-3 have?",
+      "expected_answer": "175 billion parameters.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 6,
+      "filter": {"section": "II"},
+      "evidence_quote": "GPT-3 [56] is a pre-trained autoregressive language model with 175 billion parameters."
+    },
+    {
+      "id": "d06", "type": "truc_tiep", "split": "dev",
+      "question": "What are the three steps used to train WebGPT?",
+      "expected_answer": "Learn to mimic human browsing from demonstration data; learn a reward function predicting human preferences; refine the model to optimize that reward via reinforcement learning and rejection sampling.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 6,
+      "evidence_quote": "WebGPT is trained in three steps. The first is for WebGPT to learn to mimic human browsing behaviors using human demonstration data. Then, a reward function is learned to predict human preferences. Finally, WebGPT is refined to optimize the reward function via reinforcement learning and rejection sampling."
+    },
+    {
+      "id": "d07", "type": "dien_dat_lai", "split": "dev",
+      "question": "How was CODEX created starting from GPT-3?",
+      "expected_answer": "CODEX is a descendant of GPT-3 that was fine-tuned for programming applications on code corpora collected from GitHub.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 6,
+      "evidence_quote": "CODEX is a descendant of GPT-3, fine-tuned for programming applications on code corpora collected from GitHub."
+    },
+    {
+      "id": "d08", "type": "truc_tiep", "split": "dev",
+      "question": "What range of model sizes does the Pythia suite cover, and how many models does it contain?",
+      "expected_answer": "16 LLMs ranging from 70M to 12B parameters.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 12,
+      "evidence_quote": "Pythia, a suite of 16 LLMs all trained on public data seen in the exact same order and ranging in size from 70M to 12B parameters."
+    },
+    {
+      "id": "d09", "type": "truc_tiep", "split": "dev",
+      "question": "What are the three versions in the Gemini family and what is each one intended for?",
+      "expected_answer": "Ultra for highly-complex tasks, Pro for enhanced performance and deployability at scale, and Nano for on-device applications.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 12,
+      "evidence_quote": "Gemini family includes three versions: Ultra for highly-complex tasks, Pro for enhanced performance and deployability at scale, and Nano for on-device applications."
+    },
+    {
+      "id": "d10", "type": "truc_tiep", "split": "dev",
+      "question": "What are the drawbacks of absolute positional embeddings?",
+      "expected_answer": "They restrict the model to a certain number of tokens and do not account for the relative distances between tokens.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 16,
+      "filter": {"section": "III"},
+      "evidence_quote": "The main drawback of using APE in Transformers is the restriction to a certain number of tokens. Additionally, APE fails to account for the relative distances between tokens."
+    },
+    {
+      "id": "d11", "type": "dien_dat_lai", "split": "dev",
+      "question": "Which method for handling position information in long sequences does the BLOOM model use?",
+      "expected_answer": "ALiBi (Attention with Linear Biases).",
+      "gold_source_id": "llm-survey-2024", "gold_page": 16,
+      "filter": {"section": "III"},
+      "evidence_quote": "In the BLOOM model, ALiBi is leveraged."
+    },
+    {
+      "id": "d12", "type": "dieu_kien_ngoai_le", "split": "dev",
+      "question": "Is alignment beyond supervised fine-tuning needed for small models under 7B parameters?",
+      "expected_answer": "No. According to the cited research, further alignment mainly improves models of at least 7B parameters; for smaller models SFT is sufficient.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 18,
+      "evidence_quote": "further alignment besides SFT mainly improves models of at least 7B parameters. For smaller models, SFT is sufficient."
+    },
+    {
+      "id": "d13", "type": "truc_tiep", "split": "dev",
+      "question": "What is the difference between intrinsic and extrinsic hallucinations in LLMs?",
+      "expected_answer": "Intrinsic hallucinations directly conflict with the source material; extrinsic hallucinations do not contradict it but cannot be verified against it.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 21,
+      "evidence_quote": "1) Intrinsic Hallucinations: These directly conflict with the source material, introducing factual inaccuracies or logical inconsistencies. 2) Extrinsic Hallucinations : These, while not contradicting, are unverifiable against the source, encompassing speculative or unconfirmable elements."
+    },
+    {
+      "id": "d14", "type": "dien_dat_lai", "split": "dev",
+      "question": "Which kind of rails is meant to reduce false or misleading output from an LLM?",
+      "expected_answer": "Fact-checking rails.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 24,
+      "evidence_quote": "Fact-Checking Rails: Aimed at minimizing the generation of false or misleading information."
+    },
+    {
+      "id": "d15", "type": "dieu_kien_ngoai_le", "split": "dev",
+      "question": "Under what condition does FLARE trigger retrieval while the model is generating a sentence?",
+      "expected_answer": "When the confidence of a generated sentence or segment is below a certain threshold; the generated content is then used as a query to retrieve information and regenerate or refine the sentence.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 25,
+      "evidence_quote": "In FLARE, each sentence or segment generated by the LLM is evaluated for confidence. If the confidence level is below a certain threshold, the model uses the generated content as a query to retrieve relevant information, which is then used to regenerate or refine the sentence."
+    },
+    {
+      "id": "t01", "type": "truc_tiep", "split": "test",
+      "question": "What are the three components of a RAG system?",
+      "expected_answer": "Retrieval, Generation, and Augmentation.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 24,
+      "filter": {"section": "IV"},
+      "evidence_quote": "A RAG system includes three important components: Retrieval, Generation, Augmentation [165]."
+    },
+    {
+      "id": "t02", "type": "dieu_kien_ngoai_le", "split": "test",
+      "question": "Which is slower, dynamic or static post-training quantization, and why?",
+      "expected_answer": "Dynamic post-training quantization is slower, because it computes the quantization range at runtime.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 21,
+      "evidence_quote": "Dynamic post-training quantization computes the range of quantization on the runtime and is slower compared to static."
+    },
+    {
+      "id": "t03", "type": "dien_dat_lai", "split": "test",
+      "question": "What training data does KTO need, in contrast to alignment methods that need paired preferences?",
+      "expected_answer": "Only (x, y) pairs plus knowledge of whether y is desirable or undesirable; it does not need paired preference data.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 18,
+      "evidence_quote": "KTO does not require paired preference data ( x, yw, yl), and it only needs (x,y) and knowledge of whether y is desirable or undesirable."
+    },
+    {
+      "id": "t04", "type": "dien_dat_lai", "split": "test",
+      "question": "Which metric is recommended for evaluating code generation when several candidate solutions are generated and run against tests?",
+      "expected_answer": "Pass@k.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 31,
+      "filter": {"section": "VI"},
+      "evidence_quote": "The generated code must pass the test suite but on the other hand, it is also important to understand if a model is capable of generating different solutions as a code, what is the probability of selecting the correct one among them. Pass@k is a very good metric in this case."
+    },
+    {
+      "id": "t05", "type": "truc_tiep", "split": "test",
+      "question": "Which vector database in the survey's tools list is described as tailored to extended filtering support?",
+      "expected_answer": "Qdrant.",
+      "gold_source_id": "llm-survey-2024", "gold_page": 44,
+      "evidence_quote": "Qdrant is tailored to extended filtering support."
+    }
+  ]
+}
