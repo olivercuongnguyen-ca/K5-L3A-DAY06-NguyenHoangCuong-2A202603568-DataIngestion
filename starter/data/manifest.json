@@ -1,0 +1,320 @@
+{
+  "sources": [
+    {
+      "source_id": "dense-retrieval-survey-2022",
+      "title": "Dense Text Retrieval based on Pretrained Language Models: A Survey",
+      "authors": "Wayne Xin Zhao, Jing Liu, Ruiyang Ren, Ji-Rong Wen",
+      "source_path_or_url": "data/2211.14876v1.pdf",
+      "origin_url": "https://arxiv.org/pdf/2211.14876v1",
+      "license_or_permission": "arXiv non-exclusive distribution license (shown on https://arxiv.org/abs/2211.14876). Not a Creative Commons license, so the PDF is NOT redistributed in this repository: obtain it from origin_url and verify it with sha256. Used locally for research and for local embedding only.",
+      "accessed_at": "2026-11-13",
+      "version": "arXiv v1, submitted 27 Nov 2022 (the only version listed on the abstract page when accessed)",
+      "sha256": "2dfbbe358b3dd614e8a62446e273fa859dcd035ab4f1aa119208e1bfb76bdb9e",
+      "physical_pages": 41,
+      "counted_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "full_content_pages": 31,
+      "partial_content_pages": [
+        32
+      ],
+      "excluded_pages": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "counting_method": "Pages 1-31 are body text (title/abstract, sections 1-10). Page 32 holds the end of the conclusion followed by the start of the reference list, so it is counted as partial and not as a full page. Pages 33-41 are bibliography only (>= 15 '[n]' lines marks the first reference page) and are excluded. Characters are counted after Unicode NFC normalization, before line-joining. Printed page numbers equal PDF page numbers.",
+      "known_text_noise": [
+        "Each page starts with its printed page number on its own line",
+        "Page 1 contains the arXiv stamp 'arXiv:2211.14876v1 [cs.IR] 27 Nov 2022'",
+        "Two-column layout: tables and figure captions can appear before or inside body text"
+      ],
+      "total_chars": 271707,
+      "pages": [
+        {
+          "page_id": "dense-retrieval-survey-2022-p001",
+          "page": 1,
+          "chars": 5671,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p002",
+          "page": 2,
+          "chars": 6578,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p003",
+          "page": 3,
+          "chars": 5170,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p004",
+          "page": 4,
+          "chars": 6140,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p005",
+          "page": 5,
+          "chars": 3650,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p006",
+          "page": 6,
+          "chars": 6215,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p007",
+          "page": 7,
+          "chars": 4620,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p008",
+          "page": 8,
+          "chars": 4906,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p009",
+          "page": 9,
+          "chars": 5712,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p010",
+          "page": 10,
+          "chars": 6765,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p011",
+          "page": 11,
+          "chars": 6597,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p012",
+          "page": 12,
+          "chars": 5931,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p013",
+          "page": 13,
+          "chars": 5869,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p014",
+          "page": 14,
+          "chars": 6482,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p015",
+          "page": 15,
+          "chars": 6524,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p016",
+          "page": 16,
+          "chars": 6069,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p017",
+          "page": 17,
+          "chars": 6222,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p018",
+          "page": 18,
+          "chars": 6697,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p019",
+          "page": 19,
+          "chars": 6570,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p020",
+          "page": 20,
+          "chars": 5863,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p021",
+          "page": 21,
+          "chars": 5542,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p022",
+          "page": 22,
+          "chars": 6671,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p023",
+          "page": 23,
+          "chars": 4509,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p024",
+          "page": 24,
+          "chars": 5559,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p025",
+          "page": 25,
+          "chars": 6137,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p026",
+          "page": 26,
+          "chars": 6935,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p027",
+          "page": 27,
+          "chars": 6783,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p028",
+          "page": 28,
+          "chars": 6266,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p029",
+          "page": 29,
+          "chars": 6256,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p030",
+          "page": 30,
+          "chars": 6438,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p031",
+          "page": 31,
+          "chars": 6712,
+          "kind": "content"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p032",
+          "page": 32,
+          "chars": 7336,
+          "kind": "mixed_content_and_references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p033",
+          "page": 33,
+          "chars": 8865,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p034",
+          "page": 34,
+          "chars": 8899,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p035",
+          "page": 35,
+          "chars": 9001,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p036",
+          "page": 36,
+          "chars": 8968,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p037",
+          "page": 37,
+          "chars": 8596,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p038",
+          "page": 38,
+          "chars": 9107,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p039",
+          "page": 39,
+          "chars": 9090,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p040",
+          "page": 40,
+          "chars": 9050,
+          "kind": "references"
+        },
+        {
+          "page_id": "dense-retrieval-survey-2022-p041",
+          "page": 41,
+          "chars": 6736,
+          "kind": "references"
+        }
+      ]
+    }
+  ]
+}
