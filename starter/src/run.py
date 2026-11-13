@@ -16,10 +16,11 @@ from .evaluation import evaluate_query, summarize
 from .ingestion import drop_references, load_pdf, tag_page_kinds
 from .store import PgVectorStore
 
-ROOT = Path(__file__).resolve().parent.parent          
-MANIFEST = ROOT / "data" / "manifest.json"
-BENCHMARK = ROOT / "data" / "benchmark.json"
-RESULTS = ROOT / "results"
+ROOT = Path(__file__).resolve().parent.parent
+REPO = ROOT.parent  # repo root: data/, benchmark/, results/
+MANIFEST = REPO / "data" / "manifest.json"
+BENCHMARK = REPO / "benchmark" / "benchmark.json"
+RESULTS = REPO / "results"
 TOP_K = 3
 MIN_CONTENT_PAGES = 30
 
@@ -56,7 +57,7 @@ def main() -> None:
     source = json.loads(MANIFEST.read_text(encoding="utf-8"))["sources"][0]
     if len(source["counted_pages"]) < MIN_CONTENT_PAGES:
         raise SystemExit(f"manifest counts only {len(source['counted_pages'])} content pages; need >= {MIN_CONTENT_PAGES}")
-    pages = load_pdf(ROOT / source["source_path_or_url"], source["source_id"], source["source_path_or_url"])
+    pages = load_pdf(REPO / source["source_path_or_url"], source["source_id"], source["source_path_or_url"])
     tag_page_kinds(pages, MANIFEST)
     pages = drop_references(pages)
     questions = [q for q in json.loads(BENCHMARK.read_text(encoding="utf-8"))["questions"] if q["split"] in splits]

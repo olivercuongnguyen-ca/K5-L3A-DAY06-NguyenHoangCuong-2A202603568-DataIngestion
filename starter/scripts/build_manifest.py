@@ -1,6 +1,6 @@
 """Build data/manifest.json from the PDF so page and character counts are measured, not typed.
 
-Run from starter/:  python -I scripts/build_manifest.py
+Run from the repo root:  python -I starter/scripts/build_manifest.py
 Rebuild whenever the PDF changes; sha256 in the manifest identifies the exact file.
 """
 import hashlib
@@ -11,7 +11,7 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent  # repo root
 PDF = ROOT / "data" / "2402.06196v3.pdf"
 OUT = ROOT / "data" / "manifest.json"
 SOURCE_ID = "llm-survey-2024"

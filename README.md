@@ -72,11 +72,11 @@ Model: `BAAI/bge-small-en-v1.5` (384 chiều), chạy local, chi phí 0. Không 
 File PDF **không** nằm trong repo. Tải đúng bản đã ghim và kiểm tra hash:
 
 ```bash
-curl -L https://arxiv.org/pdf/2402.06196v3 -o data/2402.06196v3.pdf
-shasum -a 256 data/2402.06196v3.pdf      # phải là c5b884dc070cc6ed3e4ec06214fa84d4afff0873e7e7f66f8dcdcd2285e10914
+curl -L https://arxiv.org/pdf/2402.06196v3 -o ../data/2402.06196v3.pdf
+shasum -a 256 ../data/2402.06196v3.pdf      # phải là c5b884dc070cc6ed3e4ec06214fa84d4afff0873e7e7f66f8dcdcd2285e10914
 ```
 
-Manifest (nguồn, quyền, trang được tính, quy tắc tính trang): `starter/data/manifest.json`, sinh bằng `python scripts/build_manifest.py`.
+Manifest (nguồn, quyền, trang được tính, quy tắc tính trang): `data/manifest.json`, sinh bằng `python starter/scripts/build_manifest.py` (chạy từ thư mục gốc repo).
 
 ## Chạy
 
@@ -90,10 +90,10 @@ python -m src.run                        # dev + test, ba chiến lược (chạ
 
 | Nội dung | Đường dẫn |
 |---|---|
-| Benchmark (20 câu: 15 dev / 5 test, gold evidence) | `starter/data/benchmark.json` |
+| Benchmark (20 câu: 15 dev / 5 test, gold evidence) | `benchmark/benchmark.json` |
 | Code pipeline | `starter/src/` (`ingestion.py`, `chunking.py`, `embeddings.py`, `store.py`, `evaluation.py`, `run.py`) |
-| Trace top-3 và chỉ số | `starter/results/traces.jsonl`, `starter/results/summary.json` |
-| Nhãn chấm thủ công và lý do | `starter/results/manual_audit.txt` |
+| Trace top-3 và chỉ số | `results/traces.jsonl`, `results/summary.json` |
+| Nhãn chấm thủ công và lý do | `results/manual_audit.txt` |
 | Nhật ký thí nghiệm A/B/C | `artifacts/experiment_log.csv` |
 | Báo cáo cá nhân | `report/individual/2A202603568_NguyenHoangCuong.md` |
 

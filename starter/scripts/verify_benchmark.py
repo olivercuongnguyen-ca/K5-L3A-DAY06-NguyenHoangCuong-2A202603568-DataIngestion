@@ -1,4 +1,4 @@
-"""Check data/benchmark.json before any retrieval run.
+"""Check benchmark/benchmark.json before any retrieval run.
 
 Run from starter/:  python scripts/verify_benchmark.py
 Verifies that every evidence_quote really appears on its gold_page (after normalization, whitespace
@@ -10,15 +10,16 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent  # starter/
+REPO = ROOT.parent  # repo root
 sys.path.insert(0, str(ROOT))
 from src.ingestion import load_pdf  # noqa: E402
 
-MANIFEST = json.loads((ROOT / "data" / "manifest.json").read_text(encoding="utf-8"))["sources"][0]
-BENCH = json.loads((ROOT / "data" / "benchmark.json").read_text(encoding="utf-8"))
+MANIFEST = json.loads((REPO / "data" / "manifest.json").read_text(encoding="utf-8"))["sources"][0]
+BENCH = json.loads((REPO / "benchmark" / "benchmark.json").read_text(encoding="utf-8"))
 squash = lambda s: re.sub(r"\s+", " ", s).strip()
 
-pages = load_pdf(ROOT / MANIFEST["source_path_or_url"], MANIFEST["source_id"], MANIFEST["source_path_or_url"])
+pages = load_pdf(REPO / MANIFEST["source_path_or_url"], MANIFEST["source_id"], MANIFEST["source_path_or_url"])
 by_page = {p.page: squash(p.text) for p in pages}
 excluded = set(MANIFEST["excluded_pages"])
 

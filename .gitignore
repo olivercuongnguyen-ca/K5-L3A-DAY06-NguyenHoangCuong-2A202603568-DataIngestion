@@ -10,4 +10,4 @@ __pycache__/
 *.sqlite
 
 # Corpus PDFs are not redistributed; data/manifest.json records origin_url + sha256
-starter/data/*.pdf
+data/*.pdf

@@ -19,8 +19,8 @@ starter/
 │   ├── store.py           # TODO: lưu vector, metadata và filter
 │   ├── evaluation.py      # TODO: chấm truy xuất, lưu trace
 │   └── run.py             # TODO: kết nối các bước thành pipeline
-├── data/                  # bạn tự chuẩn bị corpus được phép sử dụng
-└── results/               # lưu kết quả của bạn
+├── data/                  # (trống; corpus, manifest nằm ở ../data/, benchmark ở ../benchmark/)
+└── (kết quả ghi vào ../results/)
 ```
 
 ## 1. Cài và kiểm tra database
