@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed,500,50,document_id;source;page;section;kind,none,BAAI/bge-small-en-v1.5 (fastembed 0.9.1; 384d; cosine),"Baseline: cua so co dinh cat evidence giua hai chunk nen Hit thap nhat",6/15,7/15,3/5,3/5,"389 chunk; evidence bi tach giua hai chunk lien ke o t03 va t05; coherence 0.8/2; metadata 13/15; grounding 1.6/2 (0/2/3 cau)"
+B,paragraph,1200 (max_size),0,document_id;source;page;section;kind,none,BAAI/bge-small-en-v1.5 (fastembed 0.9.1; 384d; cosine),"Gop doan giu tron y nen Hit cao hon A",11/15,12/15,4/5,4/5,"185 chunk; loi: d02 (sai trang) d12 (xep hang) d15 (evidence tach doi) t05 (nguon tuong duong o trang 20); coherence 1.8/2; metadata 15/15; grounding 2.0/2 (0/0/5 cau)"
+C,paragraph,1200 (max_size),0,document_id;source;page;section;kind,section (chi ap dung cho cau co filter),BAAI/bge-small-en-v1.5 (fastembed 0.9.1; 384d; cosine),"Giong B chi khac la loc theo section; chi giup tren cau co filter",11/15,12/15,4/5,4/5,"Cung chunk va vector voi B; filter tuan thu 3/3 dev va 2/2 test; so hit giong B; coherence 1.8/2; metadata 15/15; grounding 2.0/2 (0/0/5 cau)"

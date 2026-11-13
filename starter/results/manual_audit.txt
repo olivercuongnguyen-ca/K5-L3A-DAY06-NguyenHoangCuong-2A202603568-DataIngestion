@@ -1,0 +1,775 @@
+DAY 06 - MANUAL AUDIT SHEET  (generated from starter/results/traces.jsonl, run 2026-11-13 11:30 UTC)
+====================================================================================================
+
+SCALES
+  Coherence  0 = cut in the middle of an idea / no subject, cannot be understood
+             1 = partly understandable, missing context
+             2 = self-contained, keeps the whole idea
+  Grounding  0 = no evidence for the answer in the top-3
+             1 = some evidence, but a needed condition / context is missing
+             2 = enough to answer AND you can trace it to the source (source + page are right)
+             (this judges the RETRIEVED EVIDENCE only, not an LLM answer)
+  Metadata   a chunk is "correct" only if source, page and section are all right for that chunk's text
+
+Marker in the chunk texts:  ¶ = paragraph break inside a chunk.
+
+====================================================================================================
+PART 1 - CHUNK COHERENCE  (10 fixed positions: the MIDDLE character of pages 1 to 10)
+====================================================================================================
+Positions were fixed by rule (middle of the first 10 pages), not by looking at scores. For each position, the
+chunk of each strategy that covers it is shown. A = fixed 500/50. B = paragraph 1200 (C uses the same chunks as B).
+
+--- POSITION 1  (page 1, around: "with new findings, models and ")
+  [A] llm-survey-2024-p001-fixed-005   (500 chars)
+    ask solvers to power Microsoft’s Co-Pilot systems, for instance, can follow human instructions
+    of complex new tasks performing multi-step reasoning when needed. LLMs are thus becoming the
+    basic building block for the development of general-purpose AI agents or artificial general
+    intelligence (AGI). As the field of LLMs is moving fast, with new findings, models and
+    techniques being published in a matter of months or weeks [7], [8], [9], [10], [11], AI
+    researchers and practitioners often find it c
+  SCORE (0/1/2): 1   WHY: missing subject of first sentence, last sentence isn't finished
+  [B/C] llm-survey-2024-p001-para-003   (1162 chars)
+    As the field of LLMs is moving fast, with new findings, models and techniques being published in
+    a matter of months or weeks [7], [8], [9], [10], [11], AI researchers and practitioners often
+    find it challenging to figure out the best recipes to build LLM-powered AI systems for their
+    tasks. This paper gives a timely survey of the recent advances on LLMs. We hope this survey will
+    prove a valuable and accessible resource for students, researchers and developers. LLMs are
+    large-scale, pre-trained, statistical language models based on neural networks. The recent
+    success of LLMs is an accumulation of decades of research and development of language models,
+    which can be categorized into four waves that have different starting points and velocity:
+    statistical language models, neural language models, pre-trained language models and LLMs.
+    Statistical language models (SLMs) view text as a sequence of words, and estimate the
+    probability of text as the product of their word probabilities. The dominating form of SLMs are
+    Markov chain models known as the n-gram models, which compute the probability of a word
+    conditioned on its immediate proceeding n − 1 words.
+  SCORE (0/1/2): 2   WHY: full context, appropriate background
+
+--- POSITION 2  (page 2, around: "[29], [30]. See Section VII fo")
+  [A] llm-survey-2024-p002-fixed-007   (500 chars)
+    ural language models as they are the base of LLMs, and 1Recently, several very promising non-
+    transformer LLMs have been proposed, such as the LLMs based on structured state space models
+    [29], [30]. See Section VII for more details. then focus our discussion on three families of
+    LLMs: GPT, LlaMA, and PaLM. Table I provides an overview of some of these models and their
+    characteristics. ¶ A. Early Pre-trained Neural Language Models ¶ Language modeling using neural
+    networks was pioneered by [38], [39],
+  SCORE (0/1/2): 0   WHY: I don't understand what this section is talking about
+  [B/C] llm-survey-2024-p002-para-003   (492 chars)
+    In this section we start with a review of early pre-trained neural language models as they are
+    the base of LLMs, and 1Recently, several very promising non-transformer LLMs have been proposed,
+    such as the LLMs based on structured state space models [29], [30]. See Section VII for more
+    details. then focus our discussion on three families of LLMs: GPT, LlaMA, and PaLM. Table I
+    provides an overview of some of these models and their characteristics. ¶ A. Early Pre-trained
+    Neural Language Models
+  SCORE (0/1/2): 2   WHY: fully understandable, but next heading is included
+
+--- POSITION 3  (page 3, around: "pervised method that only reli")
+  [A] llm-survey-2024-p003-fixed-005   (500 chars)
+    t tokens rather than just the small subset being masked out, as illustrated in Fig 4. XLMs [47]
+    extended BERT to cross-lingual language models using two methods: (1) a unsupervised method that
+    only relies on monolingual data, and (2) a supervised method that leverages parallel data with a
+    new cross-lingual language model objective, as illustrated in Fig 5. XLMs had obtained state-of-
+    the-art results on cross-lingual classification, unsupervised and supervised machine
+    translation, at the time they
+  SCORE (0/1/2): 0   WHY: hardly understandable, no context
+  [B/C] llm-survey-2024-p003-para-002   (1176 chars)
+    RTD is more sample-efficient than MLM because the former is defined over all input tokens rather
+    than just the small subset being masked out, as illustrated in Fig 4. XLMs [47] extended BERT to
+    cross-lingual language models using two methods: (1) a unsupervised method that only relies on
+    monolingual data, and (2) a supervised method that leverages parallel data with a new cross-
+    lingual language model objective, as illustrated in Fig 5. XLMs had obtained state-of-the-art
+    results on cross-lingual classification, unsupervised and supervised machine translation, at the
+    time they were proposed. There are also encoder-only language models that leverage the
+    advantages of auto-regressive (decoder) models for model training and inference. Two examples
+    are XLNet and UNILM. XLNet [48] is based on Transformer-XL, pre-trained using a generalized
+    autoregressive method that enables learning bidirectional contexts by maximizing the expected
+    likelihood over all permutations of the factorization order. UNILM (UNIfied pre-trained Language
+    Model) [49] is pre-trained using three types of language modeling tasks: unidirectional,
+    bidirectional, and sequence-to-sequence prediction.
+  SCORE (0/1/2): 2 WHY: good cut-off 
+
+--- POSITION 4  (page 4, around: " residual path and scaling the")
+  [A] llm-survey-2024-p004-fixed-002   (500 chars)
+    tLanguage ModelsLLMs’ Performance on Different Tasks Popular Metrics for Evaluating LLMs B New
+    Post-attentionArchitectural Paradigms C Multi-modal Models D Improved LLM Usage andAugmentation
+    techniques D Security andEthical/Responsible AI Fig. 2: The paper structure. initialization is
+    modified to account for the accumulation on the residual path and scaling the weights of
+    residual layers, vocabulary size is expanded to 50,25, and context size is increased from 512 to
+    1024 tokens. 3) Encoder-Deco
+  SCORE (0/1/2): 0   WHY: missing context, sentences cut off in the middle
+  [B/C] llm-survey-2024-p004-para-001   (1117 chars)
+    initialization is modified to account for the accumulation on the residual path and scaling the
+    weights of residual layers, vocabulary size is expanded to 50,25, and context size is increased
+    from 512 to 1024 tokens. 3) Encoder-Decoder PLMs: In [52], Raffle et al. shows that almost all
+    NLP tasks can be cast as a sequence-to-sequence generation task. Thus, an encoder-decoder
+    language model, by design, is a unified model in that it can perform all natural language
+    understanding and generation tasks. Representative encoder-decoder PLMs we will review below are
+    T5, mT5, MASS, and BART. T5 [52] is a Text-to-Text Transfer Transformer (T5) model, where
+    transfer learning is effectively exploited for NLP via an introduction of a unified framework in
+    which all NLP tasks are cast as a text-to-text generation task. mT5 [53] is a multilingual
+    variant of T5, which is pre-trained on a new Common Crawlbased dataset consisting of texts in
+    101 languages. MASS (MAsked Sequence to Sequence pre-training) [54] adopts the encoder-decoder
+    framework to reconstruct a sentence fragment given the remaining part of the sentence.
+  SCORE (0/1/2): 1   WHY: some parts of context were omitted
+
+--- POSITION 5  (page 5, around: " MedQA, MedMCQA, HealthSearchQ")
+  [A] llm-survey-2024-p005-fixed-004   (500 chars)
+    Family PaLM-2 340B 2023 - ✓ 3.6T Web documents, books, code, mathematics, con-versational data
+    Med-PaLM 540B 2022 PaLM × 780B HealthSearchQA, MedicationQA, LiveQA Med-PaLM 2 - 2023 PaLM 2 × -
+    MedQA, MedMCQA, HealthSearchQA, LiveQA, MedicationQA FLAN 137B 2021 LaMDA-PT ✓ - Web documents,
+    code, dialog data, Wikipedia Gopher 280B 2021 - × 300B MassiveText ERNIE 4.0 10B 2023 - × 4TB
+    Chinese text Retro 7.5B 2021 - × 600B MassiveText LaMDA 137B 2022 - × 168B public dialog data
+    and web documents ChinCh
+  SCORE (0/1/2): 1   WHY: understandable but unfinished
+  [B/C] llm-survey-2024-p005-para-000   (3095 chars)
+    TABLE I: High-level Overview of Popular Language Models Type Model Name #Parameters Release Base
+    Models Open Source #Tokens Training dataset BERT 110M, 340M 2018 - ✓ 137B BooksCorpus, English
+    Wikipedia RoBERTa 355M 2019 - ✓ 2.2T BooksCorpus, English Wikipedia, CC-NEWS, STORIES (a subset
+    of Common Crawl), Reddit Encoder-Only ALBERT 12M, 18M, 60M,235M 2019 - ✓ 137B BooksCorpus,
+    English Wikipedia DeBERTa - 2020 - ✓ - BooksCorpus, English Wikipedia, STORIES, Reddit content
+    XLNet 110M, 340M 2019 - ✓ 32.89B BooksCorpus, English Wikipedia, Giga5, Common Crawl, ClueWeb
+    2012-B Decoder-only GPT-1 120M 2018 - ✓ 1.3B BooksCorpusGPT-2 1.5B 2019 - ✓ 10B Reddit outbound
+    T5 (Base) 223M 2019 - ✓ 156B Common Crawl Encoder-Decoder MT5 (Base) 300M 2020 - ✓ - New Common
+    Crawl-based dataset in 101 lan-guages (m Common Crawl) BART (Base) 139M 2019 - ✓ - Corrupting
+    text GPT-3 125M, 350M, 760M, 1.3B, 2.7B, 6.7B, 13B, 175B 2020 × 300B Common Crawl (filtered),
+    WebText2, Books1, Books2, Wikipedia GPT Family CODEX 12B 2021 GPT ✓ - Public GitHub software
+    repositoriesWebGPT 760M, 13B, 175B 2021 GPT-3 × - ELI5 GPT-4 1.76T 2023 - × 13T - LLaMA1 7B,
+    13B, 33B, 65B 2023 - ✓ 1T, 1.4T Online sources LLaMA2 7B, 13B, 34B, 70B 2023 - ✓ 2T Online
+    sources Alpaca 7B 2023 LLaMA1 ✓ - GPT-3.5 Vicuna-13B 13B 2023 LLaMA1 ✓ - GPT-3.5 LLaMA Family
+    Koala 13B 2023 LLaMA ✓ - Dialogue dataMistral-7B 7.3B 2023 ✓ - - Code Llama 34 2023 LLaMA2 ✓
+    500B Publicly available code LongLLaMA 3B, 7B 2023 OpenLLaMA ✓ 1T - LLaMA-Pro-8B 8.3B 2024
+    LLaMA2-7B ✓ 80B Code and math corpora TinyLlama-1.1B 1.1B 2024 LLaMA1.1B ✓ 3T SlimPajama,
+    Starcoderdata PaLM 8B, 62B, 540B 2022 - × 780B Web documents, books, Wikipedia, conversations,
+    GitHub code U-PaLM 8B, 62B, 540B 2022 - × 1.3B Web documents, books, Wikipedia, conversations,
+    GitHub code PaLM Family PaLM-2 340B 2023 - ✓ 3.6T Web documents, books, code, mathematics, con-
+    versational data Med-PaLM 540B 2022 PaLM × 780B HealthSearchQA, MedicationQA, LiveQA Med-PaLM 2
+    - 2023 PaLM 2 × - MedQA, MedMCQA, HealthSearchQA, LiveQA, MedicationQA FLAN 137B 2021 LaMDA-PT ✓
+    - Web documents, code, dialog data, Wikipedia Gopher 280B 2021 - × 300B MassiveText ERNIE 4.0
+    10B 2023 - × 4TB Chinese text Retro 7.5B 2021 - × 600B MassiveText LaMDA 137B 2022 - × 168B
+    public dialog data and web documents ChinChilla 70B 2022 - × 1.4T MassiveText Galactia-120B 120B
+    2022 - 450B Other Popular LLMs CodeGen 16.1B 2022 - ✓ - THE PILE, BIGQUERY , BIGPYTHONBLOOM 176B
+    2022 - ✓ 366B ROOTS Zephyr 7.24B 2023 Mistral-7B ✓ 800B Synthetic data Grok-0 33B 2023 - × -
+    Online source ORCA-2 13B 2023 LLaMA2 - 2001B - StartCoder 15.5B 2023 - ✓ 35B GitHub MPT 7B 2023
+    - ✓ 1T RedPajama, m Common Crawl, S2ORC, Common Crawl Mixtral-8x7B 46.7B 2023 - ✓ - Instruction
+    dataset Falcon 180B 180B 2023 - ✓ 3.5T RefinedWeb Gemini 1.8B, 3.25B 2023 ✓ - Web documents,
+    books, and code, image data, audio data, video data DeepSeek-Coder 1.3B, 6.7B, 33B 2024 - ✓ 2T
+    GitHub’s Markdown and StackExchange DocLLM 1B,7B 2024 - × 2T IIT-CDIP Test Collection 1.0,
+    DocBank encoder and decoder for language embedding and generation, respectively.
+  SCORE (0/1/2): 2   WHY: fully understandable
+
+--- POSITION 6  (page 6, around: "stions using a text-based web ")
+  [A] llm-survey-2024-p006-fixed-003   (500 chars)
+    mber of examples in in-context prompts. CODEX [57], released by OpenAI in March 2023, is a
+    general-purpose programming model that can parse natural language and generate code in response.
+    CODEX is a descendant of GPT-3, fine-tuned for programming applications on code corpora
+    collected from GitHub. CODEX powers Microsoft’s GitHub Copilot. WebGPT [58] is another
+    descendant of GPT-3, fine-tuned to answer open-ended questions using a text-based web browser,
+    facilitating users to search and navigate
+  SCORE (0/1/2): 1   WHY: understandable but missing context
+  [B/C] llm-survey-2024-p006-para-001   (1077 chars)
+    GPT-3 achieved strong performance on many NLP tasks, including translation, question-answering,
+    and the cloze tasks, as well as several ones that require on-the-fly reasoning or domain
+    adaptation, such as unscrambling words, using a novel word in a sentence, 3-digit arithmetic.
+    Fig 9 plots the performance of GPT-3 as a function of the number of examples in in-context
+    prompts. CODEX [57], released by OpenAI in March 2023, is a general-purpose programming model
+    that can parse natural language and generate code in response. CODEX is a descendant of GPT-3,
+    fine-tuned for programming applications on code corpora collected from GitHub. CODEX powers
+    Microsoft’s GitHub Copilot. WebGPT [58] is another descendant of GPT-3, fine-tuned to answer
+    open-ended questions using a text-based web browser, facilitating users to search and navigate
+    the web. Specifically, Fig. 5: Cross-lingual language model pretraining. The MLM objective is
+    similar to BERT, but with continuous streams of text as opposed to sentence pairs. The TLM
+    objective extends MLM to pairs of parallel sentences.
+  SCORE (0/1/2): 2   WHY: full context
+
+--- POSITION 7  (page 7, around: " fine-tuning. Subsequently, th")
+  [A] llm-survey-2024-p007-fixed-006   (500 chars)
+    ks. Fig 12 shows the training process of LLaMA-2 Chat. The process begins with pre-training
+    LLaMA-2 using publicly available online data. Then, an initial version of LLaMA-2 Chat is built
+    via supervised fine-tuning. Subsequently, the model is iteratively refined using RLHF, rejection
+    sampling and proximal policy optimization. In the RLHF stage, the accumulation of human feedback
+    for revising the reward model is crucial to prevent the reward model from being changed too
+    much, which could hurt the
+  SCORE (0/1/2): 2   WHY: contemplating 1 or 2, but meaning is almost complete
+  [B/C] llm-survey-2024-p007-para-003   (1192 chars)
+    In July 2023, Meta, in partnership with Microsoft, released the LLaMA-2 collection [61], which
+    include both foundation language models and Chat models finetuned for dialog, known as LLaMA-2
+    Chat. The LLaMA-2 Chat models were reported to outperform other open-source models on many
+    public benchmarks. Fig 12 shows the training process of LLaMA-2 Chat. The process begins with
+    pre-training LLaMA-2 using publicly available online data. Then, an initial version of LLaMA-2
+    Chat is built via supervised fine-tuning. Subsequently, the model is iteratively refined using
+    RLHF, rejection sampling and proximal policy optimization. In the RLHF stage, the accumulation
+    of human feedback for revising the reward model is crucial to prevent the reward model from
+    being changed too much, which could hurt the stability of LLaMA model training. Alpaca [62] is
+    fine-tuned from the LLaMA-7B model using 52K instruction-following demonstrations generated in
+    the style of self-instruct using GPT-3.5 (text-davinci-003). Alpaca is very cost-effective for
+    training, especially for academic research. On the self-instruct evaluation set, Alpaca performs
+    similarly to GPT-3.5, despite that Alpaca is much smaller.
+  SCORE (0/1/2): 2   WHY: full context
+
+--- POSITION 8  (page 8, around: "ssional exams, compared with G")
+  [A] llm-survey-2024-p008-fixed-002   (500 chars)
+    del [31] was announced in April 2022 and remained private Fig. 11: GPT-4 performance on academic
+    and professional exams, compared with GPT 3.5. Courtesy of [33]. until March 2023. It is a 540B
+    parameter transformer-based LLM. The model is pre-trained on a high-quality text corpus
+    consisting of 780 billion tokens that comprise a wide range of natural language tasks and use
+    cases. PaLM is pre-trained on 6144 TPU v4 chips using the Pathways system, which enables highly
+    efficient training across mul
+  SCORE (0/1/2): 1   WHY: understandable but missing context
+  [B/C] llm-survey-2024-p008-para-000   (1125 chars)
+    GPT Family PaLM Family LLaMA 1/2 Family GPT GPT1 GPT2 GPT3 GPT4 GPT3.5 Turbo text-davinci code-
+    davinci CODEX InstructGPT WebGPT GPT4 Vision GPT4 Turbo Gorilla Mistral Vigogne Stable Beluga2
+    Koala Code LLaMA Vicuna Alpaca Baize Long LLaMA Giraffe Guanaco Tulu WizardLM Med-PaLM PaLM-E
+    Med-PaLM2 FLAN-PaLM U-PaLM PaLM2 PaLM Fig. 8: Popular LLM Families. Fig. 9: GPT-3 shows that
+    larger models make increasingly efficient use of in-context information. It shows in-context
+    learning performance on a simple task requiring the model to remove random symbols from a word,
+    both with and without a natural language task description. Courtesy of [56]. Fig. 10: The high-
+    level overview of RLHF. Courtesy of [59]. Vigogne [69], Tulu 65B [70], Long LLaMA [71], and
+    Stable Beluga2 [72], just to name a few. 3) The PaLM F amily : The PaLM (Pathways Language
+    Model) family are developed by Google. The first PaLM model [31] was announced in April 2022 and
+    remained private Fig. 11: GPT-4 performance on academic and professional exams, compared with
+    GPT 3.5. Courtesy of [33]. until March 2023. It is a 540B parameter transformer-based LLM.
+  SCORE (0/1/2): 1   WHY: understandable but missing context
+
+--- POSITION 9  (page 9, around: "k combining six existing open ")
+  [A] llm-survey-2024-p009-fixed-003   (500 chars)
+    igh-quality answers to medical questions. Med-PaLM is finetuned on PaLM using instruction prompt
+    tuning, a parameter-efficient method for aligning LLMs to new domains using a few exemplars.
+    Med-PaLM obtains very encouraging results on many healthcare tasks, although it is still
+    inferior to human clinicians. Med-PaLM 2 improves Med- PaLM via med-domain finetuning and
+    ensemble prompting [77]. Med-PaLM 2 scored up to 86.5% on the MedQA dataset (i.e., a benchmark
+    combining six existing open question
+  SCORE (0/1/2): 1   WHY: understandable but missing context
+  [B/C] llm-survey-2024-p009-para-001   (1017 chars)
+    Through extensive evaluations on English, multilingual, and reasoning tasks, PaLM-2
+    significantly improves the model performance on downstream tasks across different model sizes,
+    while simultaneously exhibiting faster and more efficient inference than PaLM. Med-PaLM [76] is
+    a domain-specific PaLM, and is designed to provide high-quality answers to medical questions.
+    Med-PaLM is finetuned on PaLM using instruction prompt tuning, a parameter-efficient method for
+    aligning LLMs to new domains using a few exemplars. Med-PaLM obtains very encouraging results on
+    many healthcare tasks, although it is still inferior to human clinicians. Med-PaLM 2 improves
+    Med- PaLM via med-domain finetuning and ensemble prompting [77]. Med-PaLM 2 scored up to 86.5%
+    on the MedQA dataset (i.e., a benchmark combining six existing open question answering datasets
+    spanning professional medical exams, research, and consumer queries), improving upon Med-PaLM by
+    over 19% and setting a new state-of-the-art. ¶ C. Other Representative LLMs
+  SCORE (0/1/2): 2   WHY: full context
+
+--- POSITION 10  (page 10, around: " (Generalist Language Model), ")
+  [A] llm-survey-2024-p010-fixed-003   (500 chars)
+    ) obtains comparable performance to GPT-3 and Jurassic-1 [83] on the Pile, despite using 25%
+    fewer parameters. As shown in Fig 18, Retro combines a frozen Bert retriever, a differentiable
+    encoder and a chunked cross-attention mechanism to predict tokens based on an order of magnitude
+    more data than what is typically consumed during training. GLaM: In [84], Du et al. proposed a
+    family of LLMs named GLaM (Generalist Language Model), which use a sparsely activated mixture-
+    of-experts architecture to
+  SCORE (0/1/2): 1   WHY: understandable but missing context, weird cut offs
+  [B/C] llm-survey-2024-p010-para-002   (1131 chars)
+    Using a 2-trillion-token database, the Retrieval- Enhanced Transformer (Retro) obtains
+    comparable performance to GPT-3 and Jurassic-1 [83] on the Pile, despite using 25% fewer
+    parameters. As shown in Fig 18, Retro combines a frozen Bert retriever, a differentiable encoder
+    and a chunked cross-attention mechanism to predict tokens based on an order of magnitude more
+    data than what is typically consumed during training. GLaM: In [84], Du et al. proposed a family
+    of LLMs named GLaM (Generalist Language Model), which use a sparsely activated mixture-of-
+    experts architecture to scale the Fig. 18: Retro architecture. Left: simplified version where a
+    sequence of length n = 12 is split into l = 3 chunks of size m = 4. For each chunk, we retrieve
+    k = 2 neighbours of r = 5 tokens each. The retrieval pathway is shown on top. Right: Details of
+    the interactions in the CCA operator. Causality is maintained as neighbours of the first chunk
+    only affect the last token of the first chunk and tokens from the second chunk. Courtesy of
+    [82]. model capacity while also incurring substantially less training cost compared to dense
+    variants.
+  SCORE (0/1/2): 2   WHY: full context
+
+====================================================================================================
+PART 2 - METADATA  (5 test questions x top-3, for A, B and C)
+====================================================================================================
+For every retrieved chunk check: (a) the page number is the page the text really comes from, (b) the source is
+data/2402.06196v3.pdf / llm-survey-2024, (c) the section label is right. Mark OK or WRONG and write what is wrong.
+Section label = the paper's top-level section in effect at the START of that page. Labels used by the code:
+   front: pages 1-1 | I: pages 2-2 | II: pages 3-12 | III: pages 13-21 | IV: pages 22-26 | V: pages 27-30 | VI: pages 31-35 | VII: pages 36-36 | VIII: pages 37-44
+Paper headings seen in the PDF: II (p2), III (p12), IV (p21), V (p26), VI (p30), VII (p35), VIII (p36).
+Appendix pages 43-44 are labelled VIII by the code (known limitation): write WRONG there if you disagree.
+
+--- t01  Is manual chain-of-thought prompting more effective than zero-shot, and what is its drawback?
+    given filter: {'section': 'IV'}   (gold page 23)
+  [A] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p023-fixed-008   page=23   section=IV   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p009-fixed-005   page=9   section=II   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p023-fixed-009   page=23   section=IV   -> OK  note: page, source and section verified
+  [B] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p023-para-004   page=23   section=IV   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p023-para-003   page=23   section=IV   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p009-para-002   page=9   section=II   -> OK  note: page, source and section verified
+  [C] filter applied: True   filter obeyed by all top-3: True
+      rank 1  llm-survey-2024-p023-para-004   page=23   section=IV   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p023-para-003   page=23   section=IV   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p024-para-002   page=24   section=IV   -> OK  note: page, source and section verified
+
+--- t02  Which is slower, dynamic or static post-training quantization, and why?
+    given filter: None   (gold page 21)
+  [A] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p021-fixed-001   page=21   section=III   -> OK  note: page, source and section verified; chunk ends with heading IV but its content is section III (label applies to the content)
+      rank 2  llm-survey-2024-p021-fixed-000   page=21   section=III   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p003-fixed-001   page=3   section=II   -> OK  note: page, source and section verified
+  [B] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p021-para-000   page=21   section=III   -> OK  note: page, source and section verified; chunk ends with heading IV but its content is section III (label applies to the content)
+      rank 2  llm-survey-2024-p032-para-002   page=32   section=VI   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p010-para-001   page=10   section=II   -> OK  note: page, source and section verified
+  [C] same top-3 as B (filter not applied): use the B marks
+
+--- t03  What training data does KTO need, in contrast to alignment methods that need paired preferences?
+    given filter: None   (gold page 18)
+  [A] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p018-fixed-009   page=18   section=III   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p018-fixed-006   page=18   section=III   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p018-fixed-005   page=18   section=III   -> OK  note: page, source and section verified
+  [B] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p018-para-003   page=18   section=III   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p018-para-004   page=18   section=III   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p018-para-002   page=18   section=III   -> OK  note: page, source and section verified
+  [C] same top-3 as B (filter not applied): use the B marks
+
+--- t04  Which metric is recommended for evaluating code generation when several candidate solutions are generated and run against tests?
+    given filter: {'section': 'VI'}   (gold page 31)
+  [A] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p031-fixed-006   page=31   section=VI   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p031-fixed-004   page=31   section=VI   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p031-fixed-005   page=31   section=VI   -> OK  note: page, source and section verified
+  [B] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p031-para-003   page=31   section=VI   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p032-para-001   page=32   section=VI   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p031-para-004   page=31   section=VI   -> OK  note: page, source and section verified
+  [C] same top-3 as B (filter applied): use the B marks
+
+--- t05  How does the LoRA library reduce the number of trainable parameters?
+    given filter: None   (gold page 43)
+  [A] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p043-fixed-002   page=43   section=VIII   -> WRONG  note: text is the appendix (tools/VectorDB), not section VIII; known limitation (appendix inherits the last section label)
+      rank 2  llm-survey-2024-p043-fixed-001   page=43   section=VIII   -> WRONG  note: text is the appendix (tools/VectorDB), not section VIII; known limitation (appendix inherits the last section label)
+      rank 3  llm-survey-2024-p020-fixed-004   page=20   section=III   -> OK  note: page, source and section verified
+  [B] filter applied: False   filter obeyed by all top-3: None
+      rank 1  llm-survey-2024-p020-para-001   page=20   section=III   -> OK  note: page, source and section verified
+      rank 2  llm-survey-2024-p020-para-002   page=20   section=III   -> OK  note: page, source and section verified
+      rank 3  llm-survey-2024-p020-para-000   page=20   section=III   -> OK  note: page, source and section verified
+  [C] same top-3 as B (filter not applied): use the B marks
+
+PART 2 TOTALS (metadata complete and correct / chunks checked)  -- checked against the chunk text and page
+  A: 13/15
+  B: 15/15
+  C: 15/15
+  Filter obeyed by all top-3: A n/a, B n/a (filter not applied), C 2/2 (t01, t04).
+  Errors: the appendix chunks of t05 under A (p43, labelled section VIII but they are the appendix after the references).
+  Useful field: `section` lets a filtered search keep t01 and t04 inside the right section; `page` + chunk id let you trace every chunk.
+  Limitation: `section` is per page, so a page that contains a new heading mid-page gets one label (e.g. page 21 starts in III and ends with heading IV);
+              and the appendix (pages 43-44) wrongly inherits VIII.
+
+
+====================================================================================================
+PART 3 - GROUNDING  (5 test questions x strategy; read the top-3 together)
+====================================================================================================
+Ask: could someone answer the question, with its conditions, from these 3 chunks and know where it comes from?
+
+=== t01  Is manual chain-of-thought prompting more effective than zero-shot, and what is its drawback?
+    filter: {'section': 'IV'}   gold page: 23
+    EXPECTED ANSWER: Yes, manual CoT is more effective than zero-shot, but its effectiveness depends on choosing diverse examples, and writing step-by-step reasoning examples by hand is hard and error prone.
+    EVIDENCE IN THE PAPER (page 23): "Manual CoT is more effective than zero-shot. However, the effectiveness of this example-based CoT depends on the choice of diverse examples, and constructing prompts with such examples of step by step reasoning by hand is hard and error prone."
+
+  [A]
+    rank 1  llm-survey-2024-p023-fixed-008  (page 23, section IV)
+       stage of reasoning. 2) Manual CoT: A more complex variant, it requires providing step-by-step
+      reasoning examples as templates for the model. While yielding more effective results, it poses
+      challenges in scalability and maintenance. Manual CoT is more effective than zero-shot.
+      However, the effectiveness of this example-based CoT depends on the choice of diverse
+      examples, and constructing prompts with such examples of step by step reasoning by hand is
+      hard and error prone. That is where automatic
+    rank 2  llm-survey-2024-p009-fixed-005  (page 9, section II)
+      s field forward. We briefly describe these LLMs in this subsection. FLAN: In [78], Wei et al.
+      explored a simple method for improving the zero-shot learning abilities of language models.
+      They showed that instruction tuning language models on a collection of datasets described via
+      instructions substantially improves zero-shot performance on unseen tasks. They take a 137B
+      parameter pretrained language model and instruction tune it on over 60 NLP datasets verbalized
+      via natural language instruction
+    rank 3  llm-survey-2024-p023-fixed-009  (page 23, section IV)
+      d is hard and error prone. That is where automatic CoT [157] comes into play. 2) Tree of
+      Thought (ToT): The Tree of Thought (ToT) [158] prompting technique is inspired by the concept
+      of considering various alternative solutions or thought processes before converging on the
+      most plausible one. ToT is based on the idea of branching out into multiple ”thought trees”
+      where each branch represents a different line of reasoning. This method allows the LLM to
+      explore various possibilities and hypotheses
+  [A] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 (p23-fixed-008) contains the whole answer: manual CoT is more effective than zero-shot, but its effectiveness depends on diverse examples and hand-written step-by-step examples are hard and error prone. The chunk starts mid-sentence and rank 2 (p9, FLAN) is irrelevant, but rank 3 continues the same passage, and the answer and its source (p23, section IV) are complete.
+
+  [B]
+    rank 1  llm-survey-2024-p023-para-004  (page 23, section IV)
+      While yielding more effective results, it poses challenges in scalability and maintenance.
+      Manual CoT is more effective than zero-shot. However, the effectiveness of this example-based
+      CoT depends on the choice of diverse examples, and constructing prompts with such examples of
+      step by step reasoning by hand is hard and error prone. That is where automatic CoT [157]
+      comes into play. 2) Tree of Thought (ToT): The Tree of Thought (ToT) [158] prompting technique
+      is inspired by the concept of considering various alternative solutions or thought processes
+      before converging on the most plausible one. ToT is based on the idea of branching out into
+      multiple ”thought trees” where each branch represents a different line of reasoning. This
+      method allows the LLM to explore various possibilities and hypotheses, much like human
+      cognitive processes where multiple scenarios are considered before determining the most likely
+      one. A critical aspect of ToT is the evaluation of these reasoning paths. As the LLM generates
+      different branches of thought, each is assessed for its validity and relevance to the query.
+    rank 2  llm-survey-2024-p023-para-003  (page 23, section IV)
+      1) Chain of Thought (CoT): The Chain of Thought (CoT) technique, initially described in the
+      paper “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models”[34] by Google
+      researchers, represents a pivotal advancement in prompt engineering for Large Language Models
+      (LLMs). This approach hinges on the understanding that LLMs, while proficient in token
+      prediction, are not inherently designed for explicit reasoning. CoT addresses this by guiding
+      the model through essential reasoning steps. CoT is based on making the implicit reasoning
+      process of LLMs explicit. By outlining the steps required for reasoning, the model is directed
+      closer to a logical and reasoned output, especially in scenarios demanding more than simple
+      information retrieval or pattern recognition. CoT prompting manifests in two primary forms: 1)
+      Zero-Shot CoT: This form involves instructing the LLM to “think step by step”, prompting it to
+      deconstruct the problem and articulate each stage of reasoning. 2) Manual CoT: A more complex
+      variant, it requires providing step-by-step reasoning examples as templates for the model.
+    rank 3  llm-survey-2024-p009-para-002  (page 9, section II)
+      In addition to the models discussed in the previous subsections, there are other popular LLMs
+      which do not belong to those three model families, yet they have achieved great performance
+      and have pushed the LLMs field forward. We briefly describe these LLMs in this subsection.
+      FLAN: In [78], Wei et al. explored a simple method for improving the zero-shot learning
+      abilities of language models. They showed that instruction tuning language models on a
+      collection of datasets described via instructions substantially improves zero-shot performance
+      on unseen tasks. They take a 137B parameter pretrained language model and instruction tune it
+      on over 60 NLP datasets verbalized via natural language instruction templates. They call this
+      instruction-tuned model FLAN. Fig 15 provides a comparison of instruction tuning with
+      pretrain–finetune and prompting. Fig. 15: comparison of instruction tuning with
+      pretrain–finetune and prompting. Courtesy of [78]. Gopher: In [79], Rae et al. presented an
+      analysis of Transformer-based language model performance across a wide range of model scales —
+      from models with tens of millions of parameters up to a 280 billion parameter model called
+      Gopher.
+  [B] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 has the evidence sentence in context (manual vs zero-shot and the drawback) and rank 2 defines both CoT forms; rank 3 (p9) is irrelevant but the answer and its source (p23, section IV) are fully there.
+
+  [C]
+    rank 1  llm-survey-2024-p023-para-004  (page 23, section IV)
+      While yielding more effective results, it poses challenges in scalability and maintenance.
+      Manual CoT is more effective than zero-shot. However, the effectiveness of this example-based
+      CoT depends on the choice of diverse examples, and constructing prompts with such examples of
+      step by step reasoning by hand is hard and error prone. That is where automatic CoT [157]
+      comes into play. 2) Tree of Thought (ToT): The Tree of Thought (ToT) [158] prompting technique
+      is inspired by the concept of considering various alternative solutions or thought processes
+      before converging on the most plausible one. ToT is based on the idea of branching out into
+      multiple ”thought trees” where each branch represents a different line of reasoning. This
+      method allows the LLM to explore various possibilities and hypotheses, much like human
+      cognitive processes where multiple scenarios are considered before determining the most likely
+      one. A critical aspect of ToT is the evaluation of these reasoning paths. As the LLM generates
+      different branches of thought, each is assessed for its validity and relevance to the query.
+    rank 2  llm-survey-2024-p023-para-003  (page 23, section IV)
+      1) Chain of Thought (CoT): The Chain of Thought (CoT) technique, initially described in the
+      paper “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models”[34] by Google
+      researchers, represents a pivotal advancement in prompt engineering for Large Language Models
+      (LLMs). This approach hinges on the understanding that LLMs, while proficient in token
+      prediction, are not inherently designed for explicit reasoning. CoT addresses this by guiding
+      the model through essential reasoning steps. CoT is based on making the implicit reasoning
+      process of LLMs explicit. By outlining the steps required for reasoning, the model is directed
+      closer to a logical and reasoned output, especially in scenarios demanding more than simple
+      information retrieval or pattern recognition. CoT prompting manifests in two primary forms: 1)
+      Zero-Shot CoT: This form involves instructing the LLM to “think step by step”, prompting it to
+      deconstruct the problem and articulate each stage of reasoning. 2) Manual CoT: A more complex
+      variant, it requires providing step-by-step reasoning examples as templates for the model.
+    rank 3  llm-survey-2024-p024-para-002  (page 24, section IV)
+      This technique not only enhances the depth of the response but also incorporates a range of
+      viewpoints, reflecting a more holistic understanding of the subject matter. 6) Chains: Chains
+      refer to the method of linking multiple components in a sequence to handle complex tasks with
+      Large Language Models (LLMs). This approach involves creating a series of interconnected steps
+      or processes, each contributing to the final outcome. The concept of Chains is based on the
+      idea of constructing a workflow where different stages or components are sequentially
+      arranged. Each component in a Chain performs a specific function, and the output of one serves
+      as the input for the next. This end-to-end arrangement allows for more complex and nuanced
+      processing, as each stage can be tailored to handle a specific aspect of the task. Chains can
+      vary in complexity and structure, depending on the requirements. In “PromptChainer: Chaining
+      Large Language Model Prompts through Visual Programming” [162], the authors not only describe
+      the main challenges in designing chains, but also describe a visual tool to support those
+      tasks.
+  [C] GROUNDING SCORE (0/1/2): 2   WHY: Same top-2 as B; rank 3 is p24 (Chains), irrelevant but inside the filtered section IV. Full answer and source present.
+
+=== t02  Which is slower, dynamic or static post-training quantization, and why?
+    filter: None   gold page: 21
+    EXPECTED ANSWER: Dynamic post-training quantization is slower, because it computes the quantization range at runtime.
+    EVIDENCE IN THE PAPER (page 21): "Dynamic post-training quantization computes the range of quantization on the runtime and is slower compared to static."
+
+  [A]
+    rank 1  llm-survey-2024-p021-fixed-001  (page 21, section III)
+      ed with quantized trained models in two well-known methods: dynamic and static. Dynamic post-
+      training quantization computes the range of quantization on the runtime and is slower compared
+      to static. Quantizationaware training adds quantization criteria into training, and a
+      quantized model is trained and optimized during training process. This approach ensures that
+      the end model will have good performance and also does not need to be quantized after
+      training. ¶ IV. H OW LLM S ARE USED AND AUGMENTED
+    rank 2  llm-survey-2024-p021-fixed-000  (page 21, section III)
+      precision for model weights. Reducing the precision of the weights can be used to reduce the
+      size of the model and also make it faster. As an example, Float-32 operations compared to
+      Int-8 operations are slower. This process, which is called quantization, can be applied in
+      different phases. Main approaches for model quantization can be categorized as: post training
+      quantization and quantization-aware training. Posttraining quantization is concerned with
+      quantized trained models in two well-known
+    rank 3  llm-survey-2024-p003-fixed-001  (page 3, section II)
+      n Task definition Few-shot Symbolic reference Pos/Neg example Step by step solving Tool
+      planning Task decomposition Virtual acting Physical acting Knowledge base utilization
+      Assignment planning Self-cirtisim Self-refinement Fig. 1: LLM Capabilities. larger mini-
+      batches and learning rates. ALBERT [45] uses two parameter-reduction techniques to lower
+      memory consumption and increase the training speed of BERT: (1) splitting the embedding matrix
+      into two smaller matrices, and (2) using repeating lay
+  [A] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 contains the exact statement (dynamic post-training quantization computes the range at runtime and is slower than static); rank 2 gives the quantization context; rank 3 (p3) is noise. Enough to answer and trace to p21.
+
+  [B]
+    rank 1  llm-survey-2024-p021-para-000  (page 21, section III)
+      precision for model weights. Reducing the precision of the weights can be used to reduce the
+      size of the model and also make it faster. As an example, Float-32 operations compared to
+      Int-8 operations are slower. This process, which is called quantization, can be applied in
+      different phases. Main approaches for model quantization can be categorized as: post training
+      quantization and quantization-aware training. Posttraining quantization is concerned with
+      quantized trained models in two well-known methods: dynamic and static. Dynamic post-training
+      quantization computes the range of quantization on the runtime and is slower compared to
+      static. Quantizationaware training adds quantization criteria into training, and a quantized
+      model is trained and optimized during training process. This approach ensures that the end
+      model will have good performance and also does not need to be quantized after training. ¶ IV.
+      H OW LLM S ARE USED AND AUGMENTED
+    rank 2  llm-survey-2024-p032-para-002  (page 32, section VI)
+      After providing comparison for each category, we will provide a broad overview of aggregated
+      performance by averaging the reported performance metric on different tasks. Evaluating
+      different LLMs can be seen also from different perspectives. For example, a LLM with a
+      drastically fewer number of parameters is not completely comparable to one with a larger
+      number of parameters. From this perspective, we will categorize LLMs in four categories as
+      well: small (less than or equal to 1 billion parameters), medium (between 1 and 10 billion),
+      large (between 10 and 100 billion), and very large (more than 100 billion). Another
+      classification for the LLMs we use is their primary use case. We consider each LLM to be
+      either: Foundation model (pretrained language model with no instruction fine-tuning and chat
+      fine-tuning), Instruction model (pretrained language model with only instruction finetuning),
+      and Chat model (pretrained language model with instruction and chat fine-tuning). Apart from
+      all the categorization described, another category is required to distinguish between original
+      models and tuned ones.
+    rank 3  llm-survey-2024-p010-para-001  (page 10, section II)
+      These prompted datasets allow for benchmarking the ability of a model to perform completely
+      held-out tasks. Then, a T0 encoder-decoder model is developed to consume textual inputs and
+      produces target responses. The model is trained on a multitask mixture of NLP datasets
+      partitioned into different tasks. ERNIE 3.0: In [81], Sun et al. proposed a unified framework
+      named ERNIE 3.0 for pre-training large-scale knowledge enhanced models. It fuses auto-
+      regressive network and autoencoding network, so that the trained model can be easily tailored
+      for both natural language understanding and generation tasks using zero-shot learning, few-
+      shot learning or fine-tuning. They have trained ERNIE 3.0 with 10 billion parameters on a 4TB
+      corpus consisting of plain texts and a large-scale knowledge graph. Fig 17 illustrates the
+      model architecture of Ernie 3.0. Fig. 17: High-level model architecture of ERNIE 3.0. Courtesy
+      of [81]. RETRO: In [82], Borgeaud et al. enhanced auto-regressive language models by
+      conditioning on document chunks retrieved from a large corpus, based on local similarity with
+      preceding tokens.
+  [B] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 is the whole quantization paragraph with the statement and its reason; ranks 2 and 3 (p32, p10) are irrelevant. Answer and source (p21) complete.
+
+  [C] identical top-3 to B -> same score as B: 2   WHY: Same top-3 as B, so the same reasoning.
+
+=== t03  What training data does KTO need, in contrast to alignment methods that need paired preferences?
+    filter: None   gold page: 18
+    EXPECTED ANSWER: Only (x, y) pairs plus knowledge of whether y is desirable or undesirable; it does not need paired preference data.
+    EVIDENCE IN THE PAPER (page 18): "KTO does not require paired preference data ( x, yw, yl), and it only needs (x,y) and knowledge of whether y is desirable or undesirable."
+
+  [A]
+    rank 1  llm-survey-2024-p018-fixed-009  (page 18, section III)
+      r interaction yl into a successful one yw). Fig 31 shows a high-level comparison between KTO
+      and other alignment approaches discussed above. Fig. 31: LLM alignment involves supervised
+      finetuning followed by optimizing a human-centered loss (HALO). However, the paired
+      preferences that existing approaches need are hard-to-obtain. In contrast, KTO uses a far more
+      abundant kind of data, making it much easier to use in the real world. Courtesy of [136]. ¶ H.
+      Decoding Strategies ¶ Decoding refers to the p
+    rank 2  llm-survey-2024-p018-fixed-006  (page 18, section III)
+      rence data ( x, yw, yl), and it only needs (x,y) and knowledge of whether y is desirable or
+      undesirable. KTO-aligned models are shown to be good or better than DPO-aligned models at
+      scales from 1B to 30B, despite not using paired preferences. KTO is also far easier to use in
+      the real world than preference optimization methods, as the kind of data it needs is far more
+      abundant. As an example, 3According to very recent research by Ethayarajh et al. [136],
+      further alignment besides SFT mainly impro
+    rank 3  llm-survey-2024-p018-fixed-005  (page 18, section III)
+      ming significant hyperparameter tuning. They observed that fine-tuning with DPO exceeds RLHF’s
+      ability to control sentiment of generations and improves response quality in summarization.
+      Fig 30 shows the high-level comparison between DPO vs RLHF. Even more recently Ethayarajh et
+      al. proposed a new alignment approach called the Kahneman-Tversky Optimization (KTO) [136].
+      Unlike existing state-of-the-art approaches, KTO does not require paired preference data ( x,
+      yw, yl), and it only needs (x,y) a
+  [A] GROUNDING SCORE (0/1/2): 1   WHY: The key sentence is split across rank 3 (starts: KTO does not require paired preference data...) and rank 2 (ends: ...needs (x,y) and knowledge of whether y is desirable or undesirable), and each chunk is cut mid-sentence; rank 1 only gives the general contrast. All pieces are present but no single chunk states the full contrast cleanly.
+
+  [B]
+    rank 1  llm-survey-2024-p018-para-003  (page 18, section III)
+      Unlike existing state-of-the-art approaches, KTO does not require paired preference data ( x,
+      yw, yl), and it only needs (x,y) and knowledge of whether y is desirable or undesirable. KTO-
+      aligned models are shown to be good or better than DPO-aligned models at scales from 1B to
+      30B, despite not using paired preferences. KTO is also far easier to use in the real world
+      than preference optimization methods, as the kind of data it needs is far more abundant. As an
+      example, 3According to very recent research by Ethayarajh et al. [136], further alignment
+      besides SFT mainly improves models of at least 7B parameters. For smaller models, SFT is
+      sufficient. Fig. 30: DPO optimizes for human preferences while avoiding reinforcement
+      learning. Existing methods for fine-tuning language models with human feedback first fit a
+      reward model to a dataset of prompts and human preferences over pairs of responses, and then
+      use RL to find a policy that maximizes the learned reward. In contrast, DPO directly optimizes
+      for the policy best satisfying the preferences with a simple classification objective, without
+      an explicit reward function or RL. Courtesy of [139].
+    rank 2  llm-survey-2024-p018-para-004  (page 18, section III)
+      every retail company has a lot of customer interaction data and whether that interaction was
+      successful (e.g., purchase made) or unsuccessful (e.g., no purchase made). However, they have
+      little to no counterfactual data (i.e., what would have made an unsuccessful customer
+      interaction yl into a successful one yw). Fig 31 shows a high-level comparison between KTO and
+      other alignment approaches discussed above. Fig. 31: LLM alignment involves supervised
+      finetuning followed by optimizing a human-centered loss (HALO). However, the paired
+      preferences that existing approaches need are hard-to-obtain. In contrast, KTO uses a far more
+      abundant kind of data, making it much easier to use in the real world. Courtesy of [136]. ¶ H.
+      Decoding Strategies
+    rank 3  llm-survey-2024-p018-para-002  (page 18, section III)
+      In another recent work (known as DPO) [139], Rafailov et al. discussed that RLHF is a complex
+      and often unstable procedure, and tried to address this with a new approach. They leveraged a
+      mapping between reward functions and optimal policies to show that this constrained reward
+      maximization problem can be optimized exactly with a single stage of policy training,
+      essentially solving a classification problem on the human preference data. The resulting
+      algorithm, which they called Direct Preference Optimization (DPO), is stable, performant, and
+      computationally lightweight, eliminating the need for fitting a reward model, sampling from
+      the LM during finetuning, or performing significant hyperparameter tuning. They observed that
+      fine-tuning with DPO exceeds RLHF’s ability to control sentiment of generations and improves
+      response quality in summarization. Fig 30 shows the high-level comparison between DPO vs RLHF.
+      Even more recently Ethayarajh et al. proposed a new alignment approach called the Kahneman-
+      Tversky Optimization (KTO) [136].
+  [B] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 contains the complete sentence (KTO needs no paired preferences, only (x,y) plus whether y is desirable or undesirable) with the next context; ranks 2 and 3 give the surrounding KTO/DPO discussion. Complete and traceable to p18.
+
+  [C] identical top-3 to B -> same score as B: 2   WHY: Same top-3 as B, so the same reasoning.
+
+=== t04  Which metric is recommended for evaluating code generation when several candidate solutions are generated and run against tests?
+    filter: {'section': 'VI'}   gold page: 31
+    EXPECTED ANSWER: Pass@k.
+    EVIDENCE IN THE PAPER (page 31): "The generated code must pass the test suite but on the other hand, it is also important to understand if a model is capable of generating different solutions as a code, what is the probability of selecting the correct one among them. Pass@k is a very good metric in this case."
+
+  [A]
+    rank 1  llm-survey-2024-p031-fixed-006  (page 31, section VI)
+      he evaluation. Code generation is a very different case in openended generative evaluations.
+      The generated code must pass the test suite but on the other hand, it is also important to
+      understand if a model is capable of generating different solutions as a code, what is the
+      probability of selecting the correct one among them. Pass@k is a very good metric in this
+      case. It works in this manner that given a problem, different solutions as code are generated.
+      They are tested for correctness using dif
+    rank 2  llm-survey-2024-p031-fixed-004  (page 31, section VI)
+       - Link Link Alpaca-CoT - - Link Link ¶ A. Popular Metrics for Evaluating LLMs ¶ Evaluating
+      the performance of generative language models depends on the underlying task they are going to
+      be used for. Tasks that are mostly about selecting a choice out of given ones (such as
+      sentiment analysis), can be seen as simple as classification and their performance can be
+      evaluated using classification metrics. Metrics such as accuracy, precision, recall, F1, etc
+      are applicable in this case. It is also importa
+    rank 3  llm-survey-2024-p031-fixed-005  (page 31, section VI)
+      tc are applicable in this case. It is also important to note that the answers generated by the
+      model for specific tasks such as multi-choice question answering are always either True or
+      False. If the answer is not in a set of options, it can be seen as False as well. However,
+      some tasks that are purely open-ended text generation cannot be evaluated in the same way as
+      for categorization. Different metrics are required for the specific purpose of the evaluation.
+      Code generation is a very different
+  [A] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 contains the full statement (code must pass tests; Pass@k is a very good metric when several solutions are generated); ranks 2 and 3 add the metrics context. Enough to answer and trace to p31.
+
+  [B]
+    rank 1  llm-survey-2024-p031-para-003  (page 31, section VI)
+      Evaluating the performance of generative language models depends on the underlying task they
+      are going to be used for. Tasks that are mostly about selecting a choice out of given ones
+      (such as sentiment analysis), can be seen as simple as classification and their performance
+      can be evaluated using classification metrics. Metrics such as accuracy, precision, recall,
+      F1, etc are applicable in this case. It is also important to note that the answers generated
+      by the model for specific tasks such as multi-choice question answering are always either True
+      or False. If the answer is not in a set of options, it can be seen as False as well. However,
+      some tasks that are purely open-ended text generation cannot be evaluated in the same way as
+      for categorization. Different metrics are required for the specific purpose of the evaluation.
+      Code generation is a very different case in openended generative evaluations. The generated
+      code must pass the test suite but on the other hand, it is also important to understand if a
+      model is capable of generating different solutions as a code, what is the probability of
+      selecting the correct one among them. Pass@k is a very good metric in this case.
+    rank 2  llm-survey-2024-p032-para-001  (page 32, section VI)
+      Still, even today, evaluating purely generated content is very hard and no completely fitting
+      metric is not found, metrics are either looking for simplistic features such as N-Gram,
+      SkipGram, etc, or they are models with unknown accuracy and preciseness [204]. Generative
+      evaluation metrics are also another type of evaluation metric for LLMs that use another LLM
+      for evaluating the answer. However, depending on the task itself, evaluation can be possible
+      in this way or not. Another dependency that makes generative evaluation error-prone is
+      reliance on the prompt itself. RAGAS is one of the good examples that incorporate the usage of
+      generative evaluation. Various benchmarks and leaderboards have been proposed to address the
+      most challenging question in the world of large language models: Which one is better? However
+      not a simple answer can address this question. The answer depends on various aspects of large
+      language models. Section V shows the categorical presentation of different tasks and the most
+      important datasets in each category. We will follow the same categorization and provide a
+      comparison based on each category.
+    rank 3  llm-survey-2024-p031-para-004  (page 31, section VI)
+      It works in this manner that given a problem, different solutions as code are generated. They
+      are tested for correctness using different functionality tests. Afterward, from generated n
+      solutions, and the respective c number of them being correct equation 4 provides the final
+      value. pass@k := E Problems " 1 − n−c k n k # (4) Exact match (EM) is another metric that is
+      mostly concerned with exact matches from (pre-defined) answers. It counts a prediction as
+      correct if it exactly matches one of more than one desired reference text token by token. In
+      some cases, it can be the same as accuracy and the equation 5 shows the mathematical
+      definition. Here M is total number of correct answers and N is the total number of questions
+      [202]. EM = MN (5)
+  [B] GROUNDING SCORE (0/1/2): 2   WHY: Rank 1 contains the whole passage ending with 'Pass@k is a very good metric in this case'; rank 3 adds the pass@k definition and formula. Answer and source (p31, section VI) complete.
+
+  [C] identical top-3 to B -> same score as B: 2   WHY: Same top-3 as B, so the same reasoning.
+
+=== t05  How does the LoRA library reduce the number of trainable parameters?
+    filter: None   gold page: 43
+    EXPECTED ANSWER: By learning pairs of rank-decomposition matrices while freezing the original weights.
+    EVIDENCE IN THE PAPER (page 43): "It reduces the number of trainable parameters by learning pairs of rank-decompostion matrices while freezing the original weights."
+
+  [A]
+    rank 1  llm-survey-2024-p043-fixed-002  (page 43, section VIII)
+      r of trainable parameters by learning pairs of rank-decompostion matrices while freezing the
+      original weights. This vastly reduces the storage requirement for large language models
+      adapted to specific tasks and enables efficient task-switching during deployment all without
+      introducing inference latency. LoRA also outperforms several other adaptation methods
+      including adapter, prefix-tuning, and fine-tuning. ColossalAI library [227] provides a
+      collection of parallel components. It aims to support
+    rank 2  llm-survey-2024-p043-fixed-001  (page 43, section VIII)
+       to train large models with tens of billions of parameters. It can train models in a
+      distributed manner while keeping the code as simple as stand-alone training. GPT-NeoX [225]
+      leverages many of the same features and technologies as the popular Megatron-DeepSpeed library
+      but with substantially increased usability and novel optimizations. LoRA [226] library
+      provides the support for Low-Rank Adaptation of Large Language Models. It reduces the number
+      of trainable parameters by learning pairs of ran
+    rank 3  llm-survey-2024-p020-fixed-004  (page 20, section III)
+      is used for A, and zero initialization for B, so ∆W = BA is zero at the beginning of training.
+      They then scale ∆W xby αr, where α is a constant in r. This reparametrization is illustrated
+      in Figure 34 It is worth mentioning that LoRA can be applied to a subset of weight matrices in
+      a neural network to reduce the number of trainable parameters. In the Transformer
+      architecture, there are four weight matrices in the self-attention module ( Wq , Wk, Wv , Wo),
+      and two in the MLP module. Most of the t
+  [A] GROUNDING SCORE (0/1/2): 1   WHY: The mechanism is split across two adjacent chunks: rank 2 (p43-fixed-001) ends 'It reduces the number of trainable parameters by learning pairs of ran' and rank 1 (p43-fixed-002) starts 'r of trainable parameters by ... rank-decompostion matrices while freezing the original weights'. Neither chunk alone states the full mechanism and both are cut mid-word; rank 3 (p20) only gives partial LoRA context. Both pieces are needed, so only partly grounded.
+
+  [B]
+    rank 1  llm-survey-2024-p020-para-001  (page 20, section III)
+      By focusing on updating these two smaller matrices rather than the entire original weight
+      matrix, computational efficiency can be substantially improved. Specifically, for a pre-
+      trained weight matrix W0 ∈ Rd×k, LoRA constrains its update by representing the latter with a
+      low-rank decomposition W0 + ∆W = W0 + BA, where B ∈ Rd×r , A ∈ Rr×k, and the rank r ≪ min(d,
+      k). During training, W0 is frozen and does not receive gradient updates, while A and B contain
+      trainable parameters. It is worth mentioning that both W0 and ∆W = BA are multiplied with the
+      same input, and their respective output vectors are summed coordinate-wise. For h = W0x, their
+      modified forward pass yields: h = W0x + ∆W x= W0x + BAx. Usually a random Gaussian
+      initialization is used for A, and zero initialization for B, so ∆W = BA is zero at the
+      beginning of training. They then scale ∆W xby αr, where α is a constant in r. This
+      reparametrization is illustrated in Figure 34 It is worth mentioning that LoRA can be applied
+      to a subset of weight matrices in a neural network to reduce the number of trainable
+      parameters.
+    rank 2  llm-survey-2024-p020-para-002  (page 20, section III)
+      In the Transformer architecture, there are four weight matrices in the self-attention module (
+      Wq , Wk, Wv , Wo), and two in the MLP module. Most of the time, LoRA is focused on adapting
+      the attention weights only for downstream tasks, and freezes the MLP modules, so they are not
+      trained in downstream tasks both for simplicity and parameter-efficiency. 3) Knowledge
+      Distillation : Knowledge distillation is the process of learning from a larger model [143].
+      Earlier days of best-performing models release have proven that this approach is very useful
+      even if it is used in an API distillation approach. Fig. 34: An illustration of LoRA
+      reparametrizan. Only A and B trained during this process. Courtesy of [142]. It is also
+      referred to as an approach to distill the knowledge of not a single model but in fact multiple
+      models into a smaller one. Creating smaller models by this approach yields smaller model sizes
+      that can be used even on edge devices. Knowledge distillation as shown in Fig 35, illustrates
+      a general setup of this training scheme. Fig. 35: A generic knowledge distillation framework
+      with student and teacher (Courtesy of [144]).
+    rank 3  llm-survey-2024-p020-para-000  (page 20, section III)
+      Fig. 33: Time Complexity comparison of RWKV with different Transformers. Here T denotes the
+      sequence length, d the feature dimension, and c is MEGA’s chunk size of quadratic attention.
+      Courtesy of [141]. 2) Low-Rank Adaption (LoRA) : Low-Rank Adaptation is a popular and
+      lightweight training technique that significantly reduces the number of trainable parameters,
+      and is based on a crucial insight that the difference between the finetuned weights for a
+      specialized task and the initial pre-trained weights often exhibits “low intrinsic rank” -
+      meaning that it can be approximated well by a low rank matrix [142]. Training with LoRA is
+      much faster, memory-efficient, and produces smaller model weights (a few hundred MBs), that
+      are easier to store and share. One property of low-rank matrices is that they can be
+      represented as the product of two smaller matrices. This realization leads to the hypothesis
+      that this delta between fine-tuned weights and initial pre-trained weights can be represented
+      as the matrix product of two much smaller matrices.
+  [B] GROUNDING SCORE (0/1/2): 2   WHY: All three chunks are from p20 (LoRA explained in section III), not from the gold page 43, but they explain the mechanism completely: W0 is frozen, the update is a low-rank decomposition W0 + BA, only A and B are trained, which reduces the trainable parameters. That is enough to answer and it is traceable to p20. (The strict Hit@3 metric still counts this as a miss because the benchmark lists only page 43; grounding is judged on the evidence itself.)
+
+  [C] identical top-3 to B -> same score as B: 2   WHY: Same top-3 as B, so the same reasoning.
