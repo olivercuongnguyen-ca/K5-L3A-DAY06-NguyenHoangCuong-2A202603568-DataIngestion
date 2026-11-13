@@ -1,4 +1,5 @@
 """Read and normalize source data. TODO: implement functions."""
+import json
 import logging
 import re
 import unicodedata
@@ -58,6 +59,25 @@ def assign_sections(pages: list[DocumentPage]) -> None:
             match = ROMAN_HEADING.match(line)
             if match:
                 current = match.group(1)
+
+
+def tag_page_kinds(pages: list[DocumentPage], manifest_path: Path) -> None:
+    """Copy each page's `kind` (content / mixed_content_and_references / references) from data/manifest.json.
+
+    The manifest is the single place that records how pages were counted, so the index follows the same rule.
+    """
+    manifest = json.loads(Path(manifest_path).read_text(encoding="utf-8"))["sources"]
+    kinds = {}
+    for source in manifest:
+        for entry in source["pages"]:
+            kinds[(source["source_id"], entry["page"])] = entry["kind"]
+    for page in pages:
+        page.metadata["kind"] = kinds[(page.document_id, page.page)]   # KeyError = pages and manifest disagree
+
+
+def drop_references(pages: list[DocumentPage]) -> list[DocumentPage]:
+    """Return only the pages that should be indexed: everything except bibliography-only pages."""
+    return [p for p in pages if p.metadata.get("kind") != "references"]
 
 
 def normalize_text(text: str) -> str:
