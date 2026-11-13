@@ -1,4 +1,7 @@
-"""Store and search vectors with PostgreSQL + pgvector (exact cosine search, no ANN index)."""
+"""TODO: store and search vectors using PostgreSQL + pgvector.
+
+Implemented with exact cosine search (no ANN index).
+"""
 from typing import Any
 
 import psycopg
@@ -18,6 +21,7 @@ def _vector_literal(vector: list[float]) -> str:
 
 class PgVectorStore:
     def __init__(self, database_url: str, dimensions: int) -> None:
+        """TODO: retain connection settings; validate model dimensions."""
         if dimensions <= 0:
             raise ValueError("dimensions must be positive")
         self.database_url = database_url
@@ -27,7 +31,10 @@ class PgVectorStore:
         return psycopg.connect(self.database_url, row_factory=dict_row)
 
     def create_schema(self) -> None:
-        """One table for all strategies; (strategy, chunk_id) is the key so strategies never overwrite each other."""
+        """TODO: create table with vector column and source/page/filter metadata.
+
+        Implemented as one table for all strategies; (strategy, chunk_id) is the key so strategies never overwrite each other.
+        """
         with self._connect() as conn:
             conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
             conn.execute(f"""
@@ -52,7 +59,12 @@ class PgVectorStore:
                 raise ValueError(f"table 'chunks' stores {existing}-dim vectors but the model produces {self.dimensions}")
 
     def upsert(self, strategy: str, chunks: list[Chunk], vectors: list[list[float]]) -> None:
-        """Insert or update by (strategy, chunk_id), then delete this strategy's obsolete chunks of the same documents."""
+        """TODO: validate lengths/dimensions and write stable IDs without duplicates.
+
+        When re-ingesting changed source documents, remove obsolete chunks too.
+
+        Implemented as: insert or update by (strategy, chunk_id), then delete this strategy's obsolete chunks of the same documents.
+        """
         if len(chunks) != len(vectors):
             raise ValueError(f"{len(chunks)} chunks but {len(vectors)} vectors")
         if any(len(v) != self.dimensions for v in vectors):
@@ -80,7 +92,12 @@ class PgVectorStore:
 
     def search(self, strategy: str, query_vector: list[float], top_k: int = 3,
                filters: dict[str, Any] | None = None) -> list[dict[str, Any]]:
-        """Filter in SQL first (exact), then rank the remaining chunks by cosine distance."""
+        """TODO: filter permitted metadata in SQL, rank by cosine distance, return top-k.
+
+        Return chunk ID, text, score and metadata. Parameterize user-supplied values.
+
+        Implemented as: filter in SQL first (exact), then rank the remaining chunks by cosine distance.
+        """
         if len(query_vector) != self.dimensions:
             raise ValueError(f"query vector must have {self.dimensions} dimensions")
         filters = filters or {}

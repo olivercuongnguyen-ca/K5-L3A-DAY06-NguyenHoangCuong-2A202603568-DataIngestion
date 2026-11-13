@@ -19,7 +19,10 @@ def _make_chunk(page: DocumentPage, strategy: str, index: int, text: str) -> Chu
 
 
 def fixed_size(page: DocumentPage, size: int, overlap: int) -> list[Chunk]:
-    """Strategy A: overlapping character windows; cuts words and sentences wherever the window ends."""
+    """TODO: split text into overlapping windows and retain page metadata.
+
+    Implemented as strategy A: overlapping character windows; cuts words and sentences wherever the window ends.
+    """
     if not 0 <= overlap < size:
         raise ValueError("overlap must be >= 0 and < size")
     step = size - overlap
@@ -49,7 +52,10 @@ def _pack(units: list[str], max_size: int, sep: str) -> list[str]:
 
 
 def by_paragraph(page: DocumentPage, max_size: int) -> list[Chunk]:
-    """Strategy B: pack whole paragraphs; an oversized paragraph is packed by sentences instead."""
+    """TODO: group paragraphs, split oversized paragraphs and retain metadata.
+
+    Implemented as strategy B: pack whole paragraphs; an oversized paragraph is packed by sentences instead.
+    """
     if max_size <= 0:
         raise ValueError("max_size must be positive")
     units: list[str] = []

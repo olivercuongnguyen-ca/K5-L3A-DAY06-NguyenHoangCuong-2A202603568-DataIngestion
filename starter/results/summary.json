@@ -1,0 +1,96 @@
+{
+  "run_at_utc": "2026-11-13T11:22:26+00:00",
+  "splits": [
+    "dev"
+  ],
+  "questions": 15,
+  "indexed_pages": 39,
+  "model": "BAAI/bge-small-en-v1.5",
+  "dimensions": 384,
+  "query_prefix": "Represent this sentence for searching relevant passages: ",
+  "metric": "cosine distance (pgvector <=>), exact search",
+  "top_k": 3,
+  "cost_usd": 0.0,
+  "params": {
+    "A": {
+      "chunking": "fixed",
+      "size": 500,
+      "overlap": 50
+    },
+    "B": {
+      "chunking": "para",
+      "max_size": 1200,
+      "filter": false
+    },
+    "C": {
+      "chunking": "para",
+      "max_size": 1200,
+      "filter": "section (only when the question gives one)"
+    }
+  },
+  "timing": {
+    "fixed": {
+      "chunks": 389,
+      "avg_chars": 477,
+      "chunk_seconds": 0.001,
+      "embed_seconds": 41.917
+    },
+    "para": {
+      "chunks": 185,
+      "avg_chars": 909,
+      "chunk_seconds": 0.011,
+      "embed_seconds": 40.399
+    },
+    "index_A_seconds": 0.238,
+    "index_B_seconds": 0.09,
+    "index_C_seconds": 0.089
+  },
+  "search_seconds_total": {
+    "A": 0.2325,
+    "B": 0.2028,
+    "C": 0.1884
+  },
+  "reingest_check": {
+    "A": {
+      "rows_after_first": 389,
+      "rows_after_second": 389,
+      "expected": 389
+    },
+    "B": {
+      "rows_after_first": 185,
+      "rows_after_second": 185,
+      "expected": 185
+    },
+    "C": {
+      "rows_after_first": 185,
+      "rows_after_second": 185,
+      "expected": 185
+    }
+  },
+  "versions": {
+    "python": "3.12.16",
+    "fastembed": "0.9.1",
+    "psycopg": "3.3.8",
+    "source_sha256": "c5b884dc070cc6ed3e4ec06214fa84d4afff0873e7e7f66f8dcdcd2285e10914"
+  },
+  "summary": {
+    "A/dev": {
+      "n": 15,
+      "hit_at_1": "6/15",
+      "hit_at_3": "7/15",
+      "filter_ok": "N/A"
+    },
+    "B/dev": {
+      "n": 15,
+      "hit_at_1": "11/15",
+      "hit_at_3": "12/15",
+      "filter_ok": "N/A"
+    },
+    "C/dev": {
+      "n": 15,
+      "hit_at_1": "11/15",
+      "hit_at_3": "12/15",
+      "filter_ok": "3/3"
+    }
+  }
+}
