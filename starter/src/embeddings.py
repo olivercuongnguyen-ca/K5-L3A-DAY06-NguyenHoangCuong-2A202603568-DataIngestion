@@ -1,5 +1,10 @@
-"""Choose a real embedding provider (API or local) and implement this contract."""
+"""Local embeddings with fastembed (ONNX, no API key). Implements the Embedder contract."""
 from typing import Protocol
+
+from fastembed import TextEmbedding
+
+# BGE retrieval models are trained to embed *queries* with this instruction and documents without it.
+BGE_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 
 
 class Embedder(Protocol):
@@ -16,14 +21,19 @@ class Embedder(Protocol):
 
 
 class MyEmbedder:
-    """TODO: implement a provider adapter; do not silently fall back to mock vectors."""
+    """fastembed adapter. Fails loudly if the model cannot be loaded; never falls back to mock vectors."""
 
-    def __init__(self, model_name: str) -> None:
+    def __init__(self, model_name: str, query_prefix: str = BGE_QUERY_PREFIX, batch_size: int = 32) -> None:
         self.model_name = model_name
-        raise NotImplementedError("TODO: initialize real embedder and dimensions")
+        self.query_prefix = query_prefix
+        self.batch_size = batch_size
+        self._model = TextEmbedding(model_name)                    # downloads once, then cached; raises on failure
+        self.dimensions = len(next(iter(self._model.embed(["dimension probe"]))))
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
-        raise NotImplementedError("TODO: embed_documents")
+        if not texts:
+            return []
+        return [v.tolist() for v in self._model.embed(texts, batch_size=self.batch_size)]
 
     def embed_query(self, question: str) -> list[float]:
-        raise NotImplementedError("TODO: embed_query")
+        return next(iter(self._model.embed([self.query_prefix + question]))).tolist()

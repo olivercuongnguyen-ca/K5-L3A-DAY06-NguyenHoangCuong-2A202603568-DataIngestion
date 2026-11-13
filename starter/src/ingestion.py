@@ -13,6 +13,7 @@ from .models import DocumentPage
 log = logging.getLogger(__name__)
 MIN_CHARS = 50
 
+CONTROL_CHARS = re.compile(r"[\x00-\x08\x0b-\x1f\x7f-\x9f]")   # everything except tab and newline
 ARXIV_STAMP = re.compile(r"arXiv:\d{4}\.\d{4,5}v\d+\s*\[[^\]]+\]\s*\d{1,2}\s+\w+\s+\d{4}")
 HYPHEN_BREAK = re.compile(r"(\w)-\n([a-z])")
 HEADING = re.compile(r"^([IVX]+\.|[A-Z]\.)\s+[A-Z]")
@@ -83,6 +84,7 @@ def drop_references(pages: list[DocumentPage]) -> list[DocumentPage]:
 def normalize_text(text: str) -> str:
     """TODO: normalize Unicode and whitespace without discarding useful structure."""
     text = unicodedata.normalize("NFKC", text)
+    text = CONTROL_CHARS.sub(" ", text)      # math glyphs extract as \x00/\x01; PostgreSQL rejects NUL bytes
     text = ARXIV_STAMP.sub("", text)
     text = HYPHEN_BREAK.sub(r"\1\2", text)
 
